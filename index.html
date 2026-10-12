@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bihar Academic Battle - Bihar's Academic Battle Platform">
+<meta name="theme-color" content="#082b63">
+
+<title>Bihar Academic Battle | Bihar's Academic Battle Platform</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+/* ==============================
+   FOOTER LOCATION AND GOOGLE MAP
+================================= */
+
+footer .footer-grid {
+    align-items: start;
+}
+
+.footer-location {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+    margin-top: 12px;
+}
+
+.footer-location h3 {
+    color: #ffffff;
+    margin: 0 0 20px;
+    font-size: 20px;
+}
+
+.location-layout {
+    display: grid;
+    grid-template-columns: minmax(250px, 0.8fr) minmax(320px, 1.2fr);
+    gap: 30px;
+    align-items: stretch;
+}
+
+.location-details {
+    min-width: 0;
+}
+
+.location-details p {
+    color: #dbeafe;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 0 0 14px;
+    overflow-wrap: anywhere;
+}
+
+.location-link {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 12px 0;
+    color: #93c5fd;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.7;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.location-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.location-map {
+    width: 100%;
+    min-width: 0;
+    min-height: 280px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.location-map iframe {
+    display: block;
+    width: 100%;
+    height: 300px;
+    border: 0;
+}
+
+/* Footer copyright */
+footer .copyright {
+    margin-top: 30px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 768px) {
+    footer .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 18px;
+    }
+
+    .footer-location {
+        grid-column: 1 / -1;
+    }
+
+    .location-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .location-map iframe {
+        height: 280px;
+    }
+}
+
+@media (max-width: 420px) {
+    footer .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .footer-location {
+        grid-column: auto;
+    }
+
+    .location-map iframe {
+        height: 240px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+<nav class="navbar">
+
+    <a class="logo" href="index.html">
+        <img
+            src="/assets/logo/Bihar Academic Battle Logo Collection.png"
+            alt="Bihar Academic Battle Logo"
+            class="logo-image"
+        >
+
+        <span class="logo-text">
+            <b>BIHAR ACADEMIC</b>
+            <strong>BATTLE</strong>
+            <small>Bihar's Academic Battle Platform</small>
+        </span>
+    </a>
+
+    <button
+        class="menu"
+        type="button"
+        onclick="toggleMenu()"
+        aria-label="Toggle navigation menu"
+        aria-controls="navLinks"
+        aria-expanded="false"
+    >☰</button>
+
+    <div class="nav-links" id="navLinks">
+        <a class="active" href="index.html">Home</a>
+        <a href="pages/about.html">About</a>
+        <a href="pages/registration.html">Registration</a>
+        <a href="pages/results.html">Results</a>
+        <a href="pages/certificate.html">Certificates</a>
+        <a href="pages/notices.html">Notice</a>
+        <a href="pages/contact.html">Contact</a>
+        <a href="pages/school-registration.html">School Login</a>
+        <a href="/ad.html">Admin</a>
+    </div>
+
+    <div class="nav-actions">
+        <a class="login" href="pages/student-login.html">Student Login</a>
+        <a class="register" href="pages/registration.html">Register Now</a>
+    </div>
+
+</nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+
+    <div class="slides">
+        <div class="slide active s1"></div>
+        <div class="slide s2"></div>
+        <div class="slide s3"></div>
+        <div class="slide s4"></div>
+        <div class="slide s5"></div>
+    </div>
+
+    <div class="hero-content">
+        <div>
+            <span class="badge">Bihar's Academic Battle Platform</span>
+
+            <h1>
+                Compete.<br>
+                Learn.<br>
+                <em>Achieve.</em>
+            </h1>
+
+            <p>
+                A competitive academic platform for students across Bihar.
+                Test your knowledge, compete with others, and earn recognition.
+            </p>
+
+            <div class="actions">
+                <a class="primary" href="pages/registration.html">
+                    👤 Register Now
+                </a>
+
+                <a class="secondary" href="pages/battles.html">
+                    Explore Battles →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="dots">
+        <i class="on"></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+
+    <div>
+        <b>🏆</b>
+        <h3>8+ Battles</h3>
+        <p>Academic competitions</p>
+    </div>
+
+    <div>
+        <b>🎓</b>
+        <h3>Class 1–12</h3>
+        <p>All students welcome</p>
+    </div>
+
+    <div>
+        <b>📜</b>
+        <h3>Certificates</h3>
+        <p>Recognize achievement</p>
+    </div>
+
+    <div>
+        <b>🏫</b>
+        <h3>Schools</h3>
+        <p>School participation</p>
+    </div>
+
+    <div>
+        <b>📊</b>
+        <h3>Rankings</h3>
+        <p>Track performance</p>
+    </div>
+
+</section>
+
+<main>
+
+<!-- ACADEMIC BATTLES -->
+<section class="section" id="battles">
+
+    <div class="section-head">
+        <div>
+            <span class="label">Our Battles</span>
+            <h2>Academic Battles</h2>
+            <p>
+                Choose your battle, test your skills and prove your talent.
+            </p>
+        </div>
+
+        <a href="pages/battles.html">View All →</a>
+    </div>
+
+    <div class="battle-grid">
+
+        <article class="battle-card green">
+            <div class="icon">📖</div>
+            <h3>Bihar GK Battle</h3>
+            <p>Know Your State, Know Your Pride</p>
+            <a href="battles/bihar-gk.html">Start Battle →</a>
+        </article>
+
+        <article class="battle-card blue">
+            <div class="icon">➗</div>
+            <h3>Mathematics Battle</h3>
+            <p>Think • Solve • Win</p>
+            <a href="battles/mathematics.html">Start Battle →</a>
+        </article>
+
+        <article class="battle-card orange">
+            <div class="icon">⚗️</div>
+            <h3>Science Battle</h3>
+            <p>Explore • Discover • Excel</p>
+            <a href="battles/science.html">Start Battle →</a>
+        </article>
+
+        <article class="battle-card purple">
+            <div class="icon">💻</div>
+            <h3>Computer Battle</h3>
+            <p>Code • Logic • Future</p>
+            <a href="battles/computer.html">Start Battle →</a>
+        </article>
+
+        <article class="battle-card red">
+            <div class="icon">📚</div>
+            <h3>English Battle</h3>
+            <p>Read • Think • Express</p>
+            <a href="battles/english.html">Start Battle →</a>
+        </article>
+
+        <article class="battle-card blue">
+            <div class="icon">✍️</div>
+            <h3>Hindi Battle</h3>
+            <p>पढ़ो • समझो • लिखो</p>
+            <a href="battles/hindi.html">Start Battle →</a>
+        </article>
+
+        <article class="battle-card green">
+            <div class="icon">🌍</div>
+            <h3>SST Battle</h3>
+            <p>History • Geography • Civics</p>
+            <a href="battles/sst.html">Start Battle →</a>
+        </article>
+
+        <article class="battle-card purple">
+            <div class="icon">🎨</div>
+            <h3>Drawing Battle</h3>
+            <p>Imagine • Create • Express</p>
+            <a href="battles/drawing.html">Start Battle →</a>
+        </article>
+
+    </div>
+</section>
+
+
+
+
+<!-- REGISTRATION CTA -->
+<section class="cta">
+
+    <div>
+        <small>Ready to Show Your Talent?</small>
+        <h2>Registration Open Now!</h2>
+        <p>
+            Join Bihar Academic Battle and become part of an exciting
+            academic competition.
+        </p>
+    </div>
+
+    <a href="pages/registration.html">Register Now →</a>
+
+</section>
+
+<!-- STATISTICS -->
+<section class="stats">
+
+    <div>
+        <b>50,000+</b>
+        <span>Students</span>
+    </div>
+
+    <div>
+        <b>1,200+</b>
+        <span>Schools</span>
+    </div>
+
+    <div>
+        <b>8+</b>
+        <span>Academic Battles</span>
+    </div>
+
+    <div>
+        <b>10,000+</b>
+        <span>Certificates</span>
+    </div>
+
+    <div>
+        <b>38</b>
+        <span>Districts</span>
+    </div>
+
+</section>
+
+<!-- SUPPORT -->
+<section class="support" id="support">
+
+    <div class="support-container">
+
+        <div class="support-heading">
+            <span class="label">We're Here to Help</span>
+
+            <h2>Need Help? Contact Support</h2>
+
+            <p>
+                Students, parents and schools can contact Bihar Academic
+                Battle for registration, results, certificates and
+                other queries.
+            </p>
+        </div>
+
+        <div class="support-grid">
+
+            <div class="support-card">
+                <div class="support-icon">📞</div>
+                <h3>Call Us</h3>
+                <p>Talk to our support team directly.</p>
+
+                <a class="support-link" href="tel:+917015532197">
+                    Call 7015532197 →
+                </a>
+            </div>
+
+            <div class="support-card">
+                <div class="support-icon">💬</div>
+                <h3>WhatsApp Support</h3>
+                <p>Chat with us for quick assistance.</p>
+
+                <a
+                    class="support-link"
+                    href="https://wa.me/917015532197?text=Hello%20Bihar%20Academic%20Battle%20Support"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Chat on WhatsApp →
+                </a>
+            </div>
+
+            <div class="support-card">
+                <div class="support-icon">✉️</div>
+                <h3>Email Support</h3>
+                <p>Send us your questions by email.</p>
+
+                <a
+                    class="support-link"
+                    href="mailto:biharbab00@gmail.com?subject=Bihar%20Academic%20Battle%20Support"
+                >
+                    biharbab00@gmail.com →
+                </a>
+            </div>
+
+        </div>
+
+        <div class="support-note">
+            <strong>How can we help you?</strong>
+            <p>
+                Contact us for registration, student login,
+                academic battles, results and certificates.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+
+    <div>
+        <span class="label">About Us</span>
+
+        <h2>Building a Stronger Academic Future for Bihar</h2>
+
+        <p>
+            Bihar Academic Battle is a student-focused competitive learning
+            platform designed to encourage knowledge, logical thinking,
+            confidence and healthy competition among students.
+        </p>
+    </div>
+
+    <div class="about-box">
+
+        <div>
+            <b>🎯 Mission</b>
+            <p>Learn, compete and grow.</p>
+        </div>
+
+        <div>
+            <b>🧠 Knowledge</b>
+            <p>Build strong fundamentals.</p>
+        </div>
+
+        <div>
+            <b>🏆 Recognition</b>
+            <p>Reward achievement.</p>
+        </div>
+
+        <div>
+            <b>🚀 Future</b>
+            <p>Prepare for opportunities.</p>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-grid">
+
+        <!-- BRANDING -->
+        <div class="footer-brand">
+            <h2>BIHAR ACADEMIC <span>BATTLE</span></h2>
+
+            <p>
+                Bihar's Academic Battle Platform.<br>
+                Better Students, Stronger Bihar.
+            </p>
+        </div>
+
+        <!-- PLATFORM -->
+        <div>
+            <h3>Platform</h3>
+            <a href="pages/about.html">About</a>
+            <a href="pages/battles.html">Battles</a>
+            <a href="pages/registration.html">Registration</a>
+        </div>
+
+        <!-- STUDENT -->
+        <div>
+            <h3>Student</h3>
+            <a href="pages/student-login.html">Login</a>
+            <a href="pages/results.html">Results</a>
+            <a href="pages/certificate.html">Certificates</a>
+        </div>
+
+        <!-- SUPPORT LINKS -->
+        <div>
+            <h3>Support</h3>
+            <a href="pages/notices.html">Notice</a>
+            <a href="pages/contact.html">Contact</a>
+            <a href="pages/privacy-policy.html">Privacy Policy</a>
+        </div>
+
+        <!-- LOCATION AND MAP -->
+        <div class="footer-location">
+
+            <h3>📍 Our Location</h3>
+
+            <div class="location-layout">
+
+                <!-- ADDRESS ON LEFT -->
+                <div class="location-details">
+
+                    <p>
+                        Shekhpur Dhab,<br>
+                        Near Sant Nirankari Ashram,<br>
+                        10 Meter East of Riverview Apartment,<br>
+                        Akharaghat, Susta,<br>
+                        East Muzaffarpur, Muzaffarpur,<br>
+                        Bihar – 842002, India.
+                    </p>
+
+                    <a
+                        class="location-link"
+                        href="https://www.google.com/maps/search/?api=1&query=Shekhpur+Dhab%2C+near+Sant+Nirankari+Ashram%2C+10+meter+East+of+Riverview+Apartment%2C+Akharaghat%2C+Susta%2C+Muzaffarpur%2C+Bihar+842002"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        📍 View on Google Maps →
+                    </a>
+
+                    <a
+                        class="location-link"
+                        href="https://www.google.com/maps/dir/?api=1&destination=Shekhpur+Dhab%2C+near+Sant+Nirankari+Ashram%2C+Riverview+Apartment%2C+Akharaghat%2C+Muzaffarpur%2C+Bihar+842002"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🚗 Get Directions →
+                    </a>
+
+                </div>
+
+                <!-- GOOGLE MAP ON RIGHT -->
+                <div class="location-map">
+
+                    <iframe
+                        src="https://maps.google.com/maps?q=Shekhpur%20Dhab%2C%20near%20Sant%20Nirankari%20Ashram%2C%20Riverview%20Apartment%2C%20Akharaghat%2C%20Susta%2C%20Muzaffarpur%2C%20Bihar%20842002&output=embed"
+                        title="Bihar Academic Battle office location on Google Maps"
+                        width="100%"
+                        height="300"
+                        style="border:0"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 Bihar Academic Battle. All Rights Reserved.
+    </div>
+
+</footer>
+
+<!-- EXISTING WEBSITE JAVASCRIPT -->
+<script src="js/main.js"></script>
+
+</body>
+</html>

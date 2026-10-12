@@ -1,0 +1,1 @@
+// Firebase Storage integration placeholder.

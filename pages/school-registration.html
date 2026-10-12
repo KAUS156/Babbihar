@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register your school for Bihar Academic Battle.">
+  <title>School Registration | Bihar Academic Battle</title>
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #172033;
+    }
+
+    .top-header {
+      background: #1e3a8a;
+      color: white;
+      padding: 16px 20px;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .brand { font-size: 20px; font-weight: 800; }
+
+    .nav-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .nav-btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #1e3a8a;
+      background: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .page-container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .page-title { text-align: center; margin-bottom: 25px; }
+    .page-title h1 { color: #1e3a8a; margin-bottom: 8px; }
+    .page-title p { color: #64748b; }
+
+    .registration-card {
+      background: white;
+      border-radius: 15px;
+      padding: 26px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.08);
+    }
+
+    .section { margin-bottom: 28px; }
+
+    .section-title {
+      background: #eff6ff;
+      color: #1e3a8a;
+      padding: 12px 15px;
+      border-left: 5px solid #1e3a8a;
+      border-radius: 6px;
+      margin-bottom: 18px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .form-group { display: flex; flex-direction: column; min-width: 0; }
+    .full-width { grid-column: 1 / -1; }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    .required { color: #dc2626; }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 15px;
+      background: white;
+      color: #172033;
+    }
+
+    textarea { min-height: 90px; resize: vertical; }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #93c5fd;
+      border-color: #2563eb;
+    }
+
+    .login-info {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      padding: 13px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .terms {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .terms input { width: auto; margin-top: 3px; }
+    .terms label { line-height: 1.5; }
+
+    .submit-btn {
+      width: 100%;
+      border: 0;
+      background: #1e3a8a;
+      color: white;
+      padding: 15px;
+      border-radius: 9px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover { background: #172e70; }
+    .submit-btn:disabled { opacity: .6; cursor: not-allowed; }
+
+    .message {
+      display: none;
+      padding: 13px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .success { background: #dcfce7; color: #166534; }
+    .error { background: #fee2e2; color: #991b1b; }
+
+    .login-bottom {
+      text-align: center;
+      margin-top: 22px;
+      color: #64748b;
+    }
+
+    .login-bottom a { color: #1d4ed8; font-weight: 700; }
+
+    @media (max-width: 650px) {
+      .header-inner { flex-direction: column; text-align: center; }
+      .nav-buttons { justify-content: center; }
+      .form-grid { grid-template-columns: 1fr; }
+      .full-width { grid-column: auto; }
+      .registration-card { padding: 17px; }
+      .section-title { font-size: 16px; }
+    }
+  </style>
+</head>
+
+<body>
+<header class="top-header">
+  <div class="header-inner">
+    <div class="brand">🎓 BIHAR ACADEMIC BATTLE</div>
+    <div class="nav-buttons">
+      <a class="nav-btn" href="../login.html">🔐 Login Here</a>
+      <a class="nav-btn" href="school-registration.html">🏫 School Registration</a>
+    </div>
+  </div>
+</header>
+
+<main class="page-container">
+  <div class="page-title">
+    <h1>School Registration</h1>
+    <p>Register your school for Bihar Academic Battle</p>
+  </div>
+
+  <div class="registration-card">
+    <div id="successMessage" class="message success" role="status" aria-live="polite"></div>
+    <div id="errorMessage" class="message error" role="alert" aria-live="assertive"></div>
+
+    <form id="schoolRegistrationForm">
+      <section class="section">
+        <div class="section-title">🏫 School Information</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="schoolName">School Name <span class="required">*</span></label>
+            <input id="schoolName" maxlength="150" required>
+          </div>
+
+          <div class="form-group">
+            <label for="schoolCode">School Code</label>
+            <input id="schoolCode" maxlength="50">
+          </div>
+
+          <div class="form-group">
+            <label for="schoolType">School Type</label>
+            <select id="schoolType">
+              <option value="">Select School Type</option>
+              <option>Government</option>
+              <option>Private</option>
+              <option>Government Aided</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="medium">Medium of Instruction</label>
+            <select id="medium">
+              <option value="">Select Medium</option>
+              <option>Hindi</option>
+              <option>English</option>
+              <option>Hindi &amp; English</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="numberOfStudents">Number of Students</label>
+            <input id="numberOfStudents" type="number" min="0" max="1000000" step="1" placeholder="Total students">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">👨‍🏫 Principal Information</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="principalName">Principal Name <span class="required">*</span></label>
+            <input id="principalName" maxlength="120" required>
+          </div>
+
+          <div class="form-group">
+            <label for="principalMobile">Principal Mobile</label>
+            <input id="principalMobile" type="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" placeholder="10 digit mobile number">
+          </div>
+
+          <div class="form-group">
+            <label for="schoolEmail">School Email</label>
+            <input id="schoolEmail" type="email" maxlength="254">
+          </div>
+
+          <div class="form-group">
+            <label for="schoolContact">School Contact <span class="required">*</span></label>
+            <input id="schoolContact" type="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" required placeholder="10 digit mobile number">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">📍 School Address</div>
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label for="completeAddress">Complete Address <span class="required">*</span></label>
+            <textarea id="completeAddress" maxlength="500" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="district">District <span class="required">*</span></label>
+            <input id="district" maxlength="100" required>
+          </div>
+
+          <div class="form-group">
+            <label for="block">Block</label>
+            <input id="block" maxlength="100">
+          </div>
+
+          <div class="form-group">
+            <label for="pinCode">PIN Code <span class="required">*</span></label>
+            <input id="pinCode" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" required placeholder="6 digit PIN">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">👨‍💻 School Coordinator</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="coordinatorName">Coordinator Name</label>
+            <input id="coordinatorName" maxlength="120">
+          </div>
+
+          <div class="form-group">
+            <label for="coordinatorMobile">Coordinator Mobile</label>
+            <input id="coordinatorMobile" type="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" placeholder="10 digit mobile number">
+          </div>
+
+          <div class="form-group">
+            <label for="coordinatorEmail">Coordinator Email</label>
+            <input id="coordinatorEmail" type="email" maxlength="254">
+          </div>
+
+          <div class="form-group">
+            <label for="coordinatorDesignation">Designation</label>
+            <input id="coordinatorDesignation" maxlength="100" placeholder="Teacher / Coordinator">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">🔐 School Login Credentials</div>
+        <div class="login-info">
+          इस ईमेल और पासवर्ड से स्कूल लॉगिन करेगा। पासवर्ड कम से कम 6 अक्षरों का रखें।
+          पासवर्ड Database में सेव नहीं किया जाता; Firebase Authentication इसे संभालता है।
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="loginEmail">Login Email <span class="required">*</span></label>
+            <input id="loginEmail" type="email" autocomplete="username" maxlength="254" required>
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword">Password <span class="required">*</span></label>
+            <input id="loginPassword" type="password" minlength="6" maxlength="128" autocomplete="new-password" required>
+          </div>
+        </div>
+      </section>
+
+      <div class="terms">
+        <input id="terms" type="checkbox" required>
+        <label for="terms">
+          मैं पुष्टि करता/करती हूँ कि दी गई जानकारी सही है और Bihar Academic Battle की शर्तों से सहमत हूँ।
+        </label>
+      </div>
+
+      <button type="submit" id="submitBtn" class="submit-btn">
+        🏫 Submit School Registration
+      </button>
+    </form>
+
+    <div class="login-bottom">
+      Already registered? <a href="../login.html">Login Here</a>
+    </div>
+  </div>
+</main>
+
+<script type="module">
+  import { auth, db } from "../firebase.js";
+
+  import {
+    createUserWithEmailAndPassword,
+    deleteUser
+  } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+  import {
+    ref,
+    set,
+    serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+
+  const form = document.getElementById("schoolRegistrationForm");
+  const successBox = document.getElementById("successMessage");
+  const errorBox = document.getElementById("errorMessage");
+  const submitBtn = document.getElementById("submitBtn");
+
+  function field(id) {
+    const element = document.getElementById(id);
+    if (!element) throw new Error("Missing HTML field: " + id);
+    return element.value.trim();
+  }
+
+  function showMessage(type, message) {
+    const target = type === "success" ? successBox : errorBox;
+    const other = type === "success" ? errorBox : successBox;
+    target.textContent = message;
+    target.style.display = "block";
+    other.style.display = "none";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function friendlyError(error) {
+    const customMessages = {
+      "auth/email-already-in-use":
+        "यह ईमेल पहले से रजिस्टर है। Login करें या दूसरा ईमेल इस्तेमाल करें।",
+      "auth/invalid-email":
+        "कृपया सही ईमेल दर्ज करें।",
+      "auth/weak-password":
+        "पासवर्ड कम से कम 6 अक्षरों का रखें।",
+      "auth/operation-not-allowed":
+        "Firebase Console में Email/Password Authentication enable करें।",
+      "auth/network-request-failed":
+        "Internet connection जाँचें और दोबारा प्रयास करें।",
+      "auth/too-many-requests":
+        "बहुत अधिक प्रयास हुए हैं। कुछ समय बाद कोशिश करें।",
+      "PERMISSION_DENIED":
+        "Database permission denied. Realtime Database Rules जाँचें।",
+      "permission-denied":
+        "Database permission denied. Realtime Database Rules जाँचें।"
+    };
+
+    if (error.code && customMessages[error.code]) {
+      return customMessages[error.code];
+    }
+
+    if (!error.code && error.message) return error.message;
+
+    return "Registration असफल हुआ। Firebase configuration, internet और Database Rules जाँचें।";
+  }
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    successBox.style.display = "none";
+    errorBox.style.display = "none";
+
+    if (!form.reportValidity()) return;
+
+    let credential = null;
+    let databaseSaved = false;
+
+    try {
+      const loginEmail = field("loginEmail").toLowerCase();
+      const loginPassword = document.getElementById("loginPassword").value;
+      const principalMobile = field("principalMobile");
+      const coordinatorMobile = field("coordinatorMobile");
+      const schoolContact = field("schoolContact");
+      const pinCode = field("pinCode");
+
+      if (loginPassword.length < 6) {
+        throw new Error("पासवर्ड कम से कम 6 अक्षरों का होना चाहिए।");
+      }
+
+      if (principalMobile && !/^[0-9]{10}$/.test(principalMobile)) {
+        throw new Error("Principal Mobile 10 अंकों का होना चाहिए।");
+      }
+
+      if (coordinatorMobile && !/^[0-9]{10}$/.test(coordinatorMobile)) {
+        throw new Error("Coordinator Mobile 10 अंकों का होना चाहिए।");
+      }
+
+      if (!/^[0-9]{10}$/.test(schoolContact)) {
+        throw new Error("School Contact 10 अंकों का होना चाहिए।");
+      }
+
+      if (!/^[0-9]{6}$/.test(pinCode)) {
+        throw new Error("PIN Code 6 अंकों का होना चाहिए।");
+      }
+
+      const studentsRaw = field("numberOfStudents");
+      const students = studentsRaw === "" ? 0 : Number(studentsRaw);
+
+      if (!Number.isSafeInteger(students) || students < 0 || students > 1000000) {
+        throw new Error("Number of Students सही संख्या में दर्ज करें।");
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "⏳ Registering School...";
+
+      // Create Firebase Authentication account.
+      credential = await createUserWithEmailAndPassword(
+        auth,
+        loginEmail,
+        loginPassword
+      );
+
+      const user = credential.user;
+
+      const schoolData = {
+        uid: user.uid,
+        schoolName: field("schoolName"),
+        schoolCode: field("schoolCode"),
+        schoolType: field("schoolType"),
+        medium: field("medium"),
+        numberOfStudents: students,
+
+        principalName: field("principalName"),
+        principalMobile,
+        schoolEmail: field("schoolEmail"),
+        schoolContact,
+
+        completeAddress: field("completeAddress"),
+        district: field("district"),
+        block: field("block"),
+        pinCode,
+
+        coordinatorName: field("coordinatorName"),
+        coordinatorMobile,
+        coordinatorEmail: field("coordinatorEmail"),
+        coordinatorDesignation: field("coordinatorDesignation"),
+
+        loginEmail,
+        status: "active",
+        registeredAt: serverTimestamp()
+      };
+
+      // Save profile under the authenticated user's UID.
+      await set(ref(db, "schools/" + user.uid), schoolData);
+      databaseSaved = true;
+
+      form.reset();
+
+      showMessage(
+        "success",
+        "School registration successful! Account active. Redirecting to login..."
+      );
+
+      window.setTimeout(() => {
+        window.location.href = "../login.html";
+      }, 2000);
+
+    } catch (error) {
+      console.error("School registration error:", error);
+
+      // If account creation succeeded but the database write failed,
+      // try to remove the newly created account to avoid an orphaned login.
+      if (credential && !databaseSaved) {
+        try {
+          await deleteUser(credential.user);
+        } catch (cleanupError) {
+          console.error("Could not clean up Auth account:", cleanupError);
+        }
+      }
+
+      showMessage("error", friendlyError(error));
+
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "🏫 Submit School Registration";
+    }
+  });
+</script>
+</body>
+</html>

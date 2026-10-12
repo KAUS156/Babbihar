@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Founder & Owner | Bihar Academic Battle</title>
+
+<meta name="description" content="Meet the Founder and Owner of Bihar Academic Battle, an academic platform dedicated to learning, knowledge and student success.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #071a3b;
+    --blue: #123e80;
+    --gold: #ffd166;
+    --white: #ffffff;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #172033;
+    line-height: 1.7;
+}
+
+header {
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    padding: 22px 12px;
+    border-bottom: 4px solid var(--gold);
+}
+
+header h1 {
+    font-size: clamp(23px, 4vw, 36px);
+    letter-spacing: 1px;
+}
+
+header p {
+    color: #dbeafe;
+    font-size: 14px;
+}
+
+.hero {
+    min-height: 500px;
+    padding: 55px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at top right, #27569b 0, transparent 40%),
+        linear-gradient(135deg, #06152f, #123e80);
+    color: white;
+}
+
+.profile {
+    width: 100%;
+    max-width: 800px;
+}
+
+.owner-photo {
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--gold);
+    padding: 5px;
+    background: white;
+    box-shadow: 0 0 35px #ffd16655;
+    margin-bottom: 20px;
+}
+
+.tag {
+    display: inline-block;
+    background: var(--gold);
+    color: #102347;
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.hero h3 {
+    color: var(--gold);
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 620px;
+    margin: auto;
+    color: #e2e8f0;
+    font-size: 16px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    background: var(--gold);
+    color: #071a3b;
+    padding: 12px 24px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 55px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    color: var(--navy);
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 32px;
+}
+
+.about {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px #0000000b;
+}
+
+.about p {
+    font-size: 16px;
+    color: #475569;
+}
+
+.quote-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.quote-card {
+    background: white;
+    padding: 28px 22px;
+    border-radius: 12px;
+    border-top: 4px solid var(--gold);
+    box-shadow: 0 8px 24px #0000000a;
+    transition: 0.3s;
+}
+
+.quote-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px #123e801a;
+}
+
+.quote-icon {
+    font-size: 32px;
+    color: #c18b00;
+}
+
+.quote-card blockquote {
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--navy);
+    margin: 12px 0;
+}
+
+.quote-card p {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.mission {
+    text-align: center;
+    background: linear-gradient(135deg, #071a3b, #123e80);
+    color: white;
+}
+
+.mission h2 {
+    color: var(--gold);
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.mission p {
+    max-width: 750px;
+    margin: auto;
+    color: #e2e8f0;
+}
+
+footer {
+    background: #041127;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+footer p {
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 40px 18px;
+    }
+
+    .owner-photo {
+        width: 155px;
+        height: 155px;
+    }
+
+    section {
+        padding: 40px 16px;
+    }
+
+    .about {
+        padding: 23px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎓 BIHAR ACADEMIC BATTLE</h1>
+    <p>Bihar's Academic Battle Platform</p>
+</header>
+
+<main>
+
+    <!-- OWNER PROFILE -->
+    <section class="hero">
+        <div class="profile">
+
+            <!-- Replace owner.jpg with your own photograph -->
+            <img
+                src="owner.jpg"
+                alt="Founder and Owner of Bihar Academic Battle"
+                class="owner-photo"
+                onerror="this.onerror=null;this.src='https://placehold.co/400x400/123e80/ffd166?text=OWNER+PHOTO';"
+            >
+
+            <br>
+
+            <span class="tag">FOUNDER & OWNER</span>
+
+            <h2>Kaushal Kumar</h2>
+
+            <h3>Founder of Bihar Academic Battle</h3>
+
+            <p>
+                Empowering students through knowledge, healthy competition
+                and the power of education. Building a brighter future for
+                Bihar, one student at a time.
+            </p>
+
+            <a href="#about" class="btn">Discover Our Mission ↓</a>
+
+        </div>
+    </section>
+
+    <!-- ABOUT OWNER -->
+    <section id="about">
+        <h2 class="section-title">About the Founder</h2>
+
+        <p class="section-subtitle">
+            A vision for education, excellence and opportunity.
+        </p>
+
+        <div class="about">
+            <p>
+                <strong>Kaushal Kumar</strong> is presented here as the
+                Founder & Owner of Bihar Academic Battle. The platform
+                aims to encourage students to learn, think critically,
+                test their knowledge and grow through academic competition.
+            </p>
+
+            <br>
+
+            <p>
+                Our vision is to make learning more engaging and to help
+                students develop confidence, discipline and a spirit of
+                continuous improvement.
+            </p>
+        </div>
+    </section>
+
+    <!-- INSPIRATIONAL QUOTES -->
+    <section>
+        <h2 class="section-title">Words of Inspiration</h2>
+
+        <p class="section-subtitle">
+            Ideas that inspire students to dream, learn and achieve.
+        </p>
+
+        <div class="quote-grid">
+
+            <article class="quote-card">
+                <div class="quote-icon">❝</div>
+                <blockquote>
+                    Education is the foundation of a stronger and brighter Bihar.
+                </blockquote>
+                <p>— Bihar Academic Battle</p>
+            </article>
+
+            <article class="quote-card">
+                <div class="quote-icon">❝</div>
+                <blockquote>
+                    Compete with others, but never stop improving yourself.
+                </blockquote>
+                <p>— A Message for Every Student</p>
+            </article>
+
+            <article class="quote-card">
+                <div class="quote-icon">❝</div>
+                <blockquote>
+                    Knowledge gives you confidence; hard work turns it into achievement.
+                </blockquote>
+                <p>— Learn • Practice • Succeed</p>
+            </article>
+
+            <article class="quote-card">
+                <div class="quote-icon">❝</div>
+                <blockquote>
+                    A student's greatest victory is becoming better than yesterday.
+                </blockquote>
+                <p>— Keep Growing</p>
+            </article>
+
+            <article class="quote-card">
+                <div class="quote-icon">❝</div>
+                <blockquote>
+                    Dream big, study smart and work consistently for your goals.
+                </blockquote>
+                <p>— Student Success Mindset</p>
+            </article>
+
+            <article class="quote-card">
+                <div class="quote-icon">❝</div>
+                <blockquote>
+                    जब शिक्षा मजबूत होगी, तभी बिहार का भविष्य और भी उज्ज्वल होगा।
+                </blockquote>
+                <p>— शिक्षा ही शक्ति है</p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- MISSION -->
+    <section class="mission">
+        <h2>Our Mission</h2>
+
+        <p>
+            To inspire students across Bihar to learn with curiosity,
+            compete with confidence and achieve excellence through
+            knowledge, practice and dedication.
+        </p>
+
+        <a href="index.html" class="btn">Explore Our Platform</a>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>BIHAR ACADEMIC BATTLE</strong></p>
+    <p>Learn • Compete • Excel</p>
+    <p>© <span id="year"></span> Bihar Academic Battle. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
