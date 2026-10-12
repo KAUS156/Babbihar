@@ -9,15 +9,667 @@
 
 <title>Bihar Academic Battle | Bihar's Academic Battle Platform</title>
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
 <style>
-/* ==============================
-   FOOTER LOCATION AND GOOGLE MAP
-================================= */
+/* GLOBAL */
+* {
+    box-sizing: border-box;
+}
 
-footer .footer-grid {
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #102a56;
+    background: #f4f9ff;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    min-height: 76px;
+    padding: 10px max(16px, calc((100% - 1200px) / 2));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 3px 18px #00000012;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.logo-image {
+    display: block;
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.logo b {
+    font-size: 13px;
+    font-weight: 900;
+    color: #082b63;
+}
+
+.logo strong {
+    margin-top: 2px;
+    font-size: 21px;
+    font-weight: 900;
+    color: #e9a900;
+}
+
+.logo small {
+    margin-top: 4px;
+    color: #60718e;
+    font-size: 8px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+}
+
+.nav-links > a {
+    display: inline-block;
+    padding: 9px 0;
+    color: #17345f;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.nav-links > a:hover,
+.nav-links > a.active {
+    color: #0d4da4;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.login,
+.register,
+.primary,
+.secondary {
+    display: inline-block;
+    padding: 11px 15px;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.login {
+    background: #082b63;
+    color: #fff;
+}
+
+.register,
+.primary {
+    background: #ffc928;
+    color: #17345f;
+}
+
+.login:hover {
+    background: #0d4da4;
+}
+
+.register:hover,
+.primary:hover {
+    background: #f0b900;
+}
+
+.mobile-actions {
+    display: none;
+}
+
+.menu {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 9px;
+    background: #082b63;
+    color: white;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* HERO SLIDER */
+.hero {
+    position: relative;
+    height: 535px;
+    overflow: hidden;
+    background: #082b63;
+    color: white;
+}
+
+.slides,
+.slide {
+    position: absolute;
+    inset: 0;
+}
+
+.slide {
+    opacity: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity .6s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.s1 {
+    background-image:
+        linear-gradient(90deg,#021c43ed,#021c4355),
+        url("/assets/logo/1.jpeg");
+}
+
+.s2 {
+    background-image:
+        linear-gradient(90deg,#021c43ed,#021c4355),
+        url("/assets/logo/2.jpeg");
+}
+
+.s3 {
+    background-image:
+        linear-gradient(90deg,#021c43ed,#021c4355),
+        url("/assets/logo/3.jpg");
+}
+
+.s4 {
+    background-image:
+        linear-gradient(90deg,#021c43ed,#021c4355),
+        url("/assets/logo/4.jpg");
+}
+
+.s5 {
+    background-image:
+        linear-gradient(90deg,#021c43ed,#021c4355),
+        url("https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1800&q=85");
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 45px 20px;
+}
+
+.hero-content > div {
+    max-width: 620px;
+}
+
+.badge,
+.label {
+    display: inline-block;
+    padding: 7px 13px;
+    border-radius: 25px;
+    background: #fff0bb;
+    color: #8d6400;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.hero .badge {
+    background: #ffc928;
+    color: #17345f;
+}
+
+.hero h1 {
+    margin: 18px 0;
+    font-size: clamp(45px, 6vw, 72px);
+    line-height: 1.02;
+}
+
+.hero em {
+    color: #ffc928;
+    font-style: normal;
+}
+
+.hero p {
+    max-width: 540px;
+    margin-bottom: 25px;
+    color: #e8f2ff;
+    font-size: 16px;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.secondary {
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+}
+
+.dots {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    z-index: 3;
+    display: flex;
+    gap: 8px;
+    transform: translateX(-50%);
+}
+
+.dots i {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ffffff88;
+    cursor: pointer;
+}
+
+.dots i.on {
+    width: 25px;
+    border-radius: 10px;
+    background: #ffc928;
+}
+
+/* FEATURES */
+.features {
+    position: relative;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: repeat(5,minmax(0,1fr));
+    gap: 14px;
+    max-width: 1120px;
+    margin: -35px auto 0;
+    padding: 0 15px;
+}
+
+.features > div {
+    padding: 22px 12px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 12px 35px #123a6c1f;
+    text-align: center;
+}
+
+.features b {
+    font-size: 25px;
+}
+
+.features h3 {
+    margin: 5px;
+    font-size: 14px;
+}
+
+.features p {
+    color: #60718e;
+    font-size: 11px;
+}
+
+/* BATTLES */
+.section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 80px 20px;
+}
+
+.section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.section h2 {
+    margin: 8px 0;
+    font-size: 36px;
+}
+
+.section-head p {
+    color: #60718e;
+}
+
+.section-head > a {
+    color: #0d4da4;
+    font-weight: 800;
+}
+
+.battle-grid {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 17px;
+}
+
+.battle-card {
+    min-width: 0;
+    min-height: 225px;
+    padding: 23px 18px;
+    overflow: hidden;
+    border-radius: 17px;
+    color: white;
+    transition: transform .25s;
+}
+
+.battle-card:hover {
+    transform: translateY(-6px);
+}
+
+.green {
+    background: linear-gradient(145deg,#25a948,#117c3b);
+}
+
+.blue {
+    background: linear-gradient(145deg,#2879ed,#1453b7);
+}
+
+.orange {
+    background: linear-gradient(145deg,#ff9c00,#f36d00);
+}
+
+.purple {
+    background: linear-gradient(145deg,#8552e9,#5d28bc);
+}
+
+.red {
+    background: linear-gradient(145deg,#ee526b,#cf2846);
+}
+
+.battle-card .icon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    background: white;
+    font-size: 25px;
+}
+
+.battle-card h3 {
+    font-size: 17px;
+}
+
+.battle-card p {
+    min-height: 36px;
+    margin: 6px 0 15px;
+    font-size: 12px;
+}
+
+.battle-card > a {
+    display: inline-block;
+    padding: 8px 13px;
+    border-radius: 22px;
+    background: white;
+    color: #173d76;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+/* CTA */
+.cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 40px max(20px,calc((100% - 1120px) / 2));
+    background: linear-gradient(110deg,#082b63,#0d4da4);
+    color: white;
+}
+
+.cta h2 {
+    margin: 5px 0;
+    color: #ffc928;
+}
+
+.cta p {
+    color: #d9e9ff;
+    font-size: 13px;
+}
+
+/* STATS */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(5,minmax(0,1fr));
+    gap: 20px;
+    padding: 35px max(20px,calc((100% - 1120px) / 2));
+    background: white;
+    text-align: center;
+}
+
+.stats b {
+    display: block;
+    color: #082b63;
+    font-size: 25px;
+}
+
+.stats span {
+    color: #60718e;
+    font-size: 11px;
+}
+
+/* SUPPORT */
+.support {
+    padding: 75px 20px;
+    background: white;
+}
+
+.support-container {
+    max-width: 1120px;
+    margin: auto;
+}
+
+.support-heading {
+    max-width: 700px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.support-heading h2 {
+    margin: 12px 0;
+    color: #082b63;
+    font-size: 36px;
+}
+
+.support-heading p {
+    color: #60718e;
+    font-size: 14px;
+}
+
+.support-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 22px;
+}
+
+.support-card {
+    padding: 30px 20px;
+    border: 1px solid #e0eaf6;
+    border-radius: 18px;
+    background: #f4f9ff;
+    text-align: center;
+    transition: transform .25s,box-shadow .25s;
+}
+
+.support-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px #123a6c18;
+}
+
+.support-icon {
+    display: grid;
+    place-items: center;
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 15px;
+    border-radius: 18px;
+    background: #082b63;
+    font-size: 29px;
+}
+
+.support-card h3 {
+    margin-bottom: 8px;
+    color: #082b63;
+    font-size: 19px;
+}
+
+.support-card p {
+    margin-bottom: 20px;
+    color: #60718e;
+    font-size: 13px;
+}
+
+.support-link {
+    display: inline-block;
+    max-width: 100%;
+    padding: 11px 16px;
+    overflow-wrap: anywhere;
+    border-radius: 25px;
+    background: #ffc928;
+    color: #082b63;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.support-note {
+    margin-top: 25px;
+    padding: 20px;
+    border-left: 4px solid #ffc928;
+    border-radius: 10px;
+    background: #eef7ff;
+    text-align: center;
+}
+
+.support-note strong {
+    color: #082b63;
+}
+
+.support-note p {
+    margin-top: 5px;
+    color: #60718e;
+    font-size: 13px;
+}
+
+/* ABOUT */
+.about {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    align-items: center;
+    gap: 50px;
+    padding: 75px max(20px,calc((100% - 1120px) / 2));
+    background: #eef7ff;
+}
+
+.about h2 {
+    margin: 10px 0 15px;
+    font-size: 36px;
+}
+
+.about p {
+    color: #60718e;
+}
+
+.about-box {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 15px;
+}
+
+.about-box > div {
+    padding: 20px;
+    border-radius: 14px;
+    background: white;
+    box-shadow: 0 8px 25px #123a6c14;
+}
+
+.about-box p {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+/* FOOTER */
+footer {
+    padding: 45px 20px 20px;
+    background: #061f47;
+    color: white;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 30px;
+    max-width: 1150px;
+    margin: auto;
     align-items: start;
+}
+
+.footer-grid h2 span {
+    color: #ffc928;
+}
+
+.footer-grid h3 {
+    margin: 0 0 12px;
+    font-size: 16px;
+}
+
+.footer-grid p,
+.footer-grid a {
+    color: #b8c9df;
+    font-size: 12px;
+}
+
+.footer-grid a {
+    display: block;
+    margin: 8px 0;
+    overflow-wrap: anywhere;
+}
+
+.footer-grid a:hover {
+    color: white;
 }
 
 .footer-location {
@@ -27,15 +679,15 @@ footer .footer-grid {
     margin-top: 12px;
 }
 
-.footer-location h3 {
-    color: #ffffff;
-    margin: 0 0 20px;
+.footer-location > h3 {
+    margin-bottom: 20px;
+    color: white;
     font-size: 20px;
 }
 
 .location-layout {
     display: grid;
-    grid-template-columns: minmax(250px, 0.8fr) minmax(320px, 1.2fr);
+    grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr);
     gap: 30px;
     align-items: stretch;
 }
@@ -45,14 +697,14 @@ footer .footer-grid {
 }
 
 .location-details p {
+    margin-bottom: 14px;
     color: #dbeafe;
     font-size: 14px;
     line-height: 1.9;
-    margin: 0 0 14px;
     overflow-wrap: anywhere;
 }
 
-.location-link {
+.location-details .location-link {
     display: block;
     width: fit-content;
     max-width: 100%;
@@ -61,12 +713,10 @@ footer .footer-grid {
     font-size: 14px;
     font-weight: 600;
     line-height: 1.7;
-    text-decoration: none;
-    overflow-wrap: anywhere;
 }
 
-.location-link:hover {
-    color: #ffffff;
+.location-details .location-link:hover {
+    color: white;
     text-decoration: underline;
 }
 
@@ -75,10 +725,10 @@ footer .footer-grid {
     min-width: 0;
     min-height: 280px;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid #ffffff33;
     border-radius: 12px;
-    background: #ffffff;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    background: white;
+    box-shadow: 0 8px 24px #00000026;
 }
 
 .location-map iframe {
@@ -88,15 +738,160 @@ footer .footer-grid {
     border: 0;
 }
 
-/* Footer copyright */
-footer .copyright {
-    margin-top: 30px;
+.copyright {
+    max-width: 1150px;
+    margin: 30px auto 0;
+    padding-top: 15px;
+    border-top: 1px solid #ffffff1a;
+    color: #9fb1c9;
+    font-size: 11px;
+    text-align: center;
 }
 
-/* Tablet and mobile */
-@media (max-width: 768px) {
-    footer .footer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+/* TABLET */
+@media (max-width: 1050px) {
+    .navbar {
+        gap: 12px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links > a {
+        font-size: 11px;
+    }
+
+    .nav-actions .login,
+    .nav-actions .register {
+        padding: 10px;
+        font-size: 10px;
+    }
+}
+
+/* MOBILE NAVBAR */
+@media (max-width: 900px) {
+    .navbar {
+        min-height: 66px;
+        padding: 8px 12px;
+        gap: 10px;
+    }
+
+    .logo {
+        gap: 7px;
+        min-width: 0;
+    }
+
+    .logo-image {
+        width: 43px;
+        height: 43px;
+    }
+
+    .logo b {
+        font-size: 11px;
+    }
+
+    .logo strong {
+        font-size: 17px;
+    }
+
+    .logo small {
+        display: none;
+    }
+
+    .nav-actions {
+        display: none !important;
+    }
+
+    .menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-height: calc(100vh - 66px);
+        overflow-y: auto;
+        padding: 12px 16px 22px;
+        border-top: 1px solid #e5eaf2;
+        background: white;
+        box-shadow: 0 12px 24px #00000020;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+    }
+
+    .nav-links.is-open {
+        display: flex !important;
+        animation: menuDrop .2s ease-out;
+    }
+
+    .nav-links > a {
+        display: block;
+        width: 100%;
+        padding: 14px 10px;
+        border-bottom: 1px solid #edf1f7;
+        color: #082b63;
+        font-size: 14px;
+        white-space: normal;
+    }
+
+    .nav-links > a.active {
+        border-radius: 7px;
+        background: #f0f6ff;
+    }
+
+    .mobile-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 16px;
+    }
+
+    .mobile-actions a {
+        display: block;
+        width: 100%;
+        padding: 13px 15px;
+        border-radius: 25px;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 800;
+    }
+
+    .mobile-actions .login {
+        background: #082b63;
+        color: white;
+    }
+
+    .mobile-actions .register {
+        background: #ffc928;
+        color: #17345f;
+    }
+
+    .features {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+
+    .battle-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+
+    .stats {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
         gap: 24px 18px;
     }
 
@@ -105,18 +900,113 @@ footer .copyright {
     }
 
     .location-layout {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: minmax(0,1fr);
         gap: 20px;
     }
 
     .location-map iframe {
         height: 280px;
     }
+
+    .support-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-@media (max-width: 420px) {
-    footer .footer-grid {
-        grid-template-columns: minmax(0, 1fr);
+/* SMALL MOBILE */
+@media (max-width: 550px) {
+    .hero {
+        height: 540px;
+    }
+
+    .hero-content {
+        padding: 30px 18px;
+    }
+
+    .hero-content > div {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+        text-align: center;
+    }
+
+    .hero p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .hero .badge {
+        display: table;
+        margin: auto;
+        text-align: center;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+
+    .features,
+    .battle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 60px 18px;
+    }
+
+    .section-head {
+        display: block;
+    }
+
+    .section-head > a {
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .section h2,
+    .support-heading h2 {
+        font-size: 29px;
+    }
+
+    .cta {
+        flex-direction: column;
+        padding: 35px 20px;
+        text-align: center;
+    }
+
+    .stats {
+        padding: 30px 16px;
+        gap: 24px 12px;
+    }
+
+    .stats b {
+        font-size: 21px;
+    }
+
+    .support {
+        padding: 55px 18px;
+    }
+
+    .support-card {
+        padding: 25px 18px;
+    }
+
+    .about {
+        padding: 55px 20px;
+    }
+
+    .about h2 {
+        font-size: 29px;
+    }
+
+    .about-box {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: minmax(0,1fr);
     }
 
     .footer-location {
@@ -127,16 +1017,70 @@ footer .copyright {
         height: 240px;
     }
 }
+
+@media (max-width: 380px) {
+    .navbar {
+        padding: 8px;
+        gap: 5px;
+    }
+
+    .logo {
+        gap: 5px;
+    }
+
+    .logo-image {
+        width: 35px;
+        height: 35px;
+    }
+
+    .logo b {
+        font-size: 9px;
+    }
+
+    .logo strong {
+        font-size: 15px;
+    }
+
+    .menu {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+}
+
+@keyframes menuDrop {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- HEADER / NAVBAR -->
 <header>
-<nav class="navbar">
+<nav class="navbar" id="mainNavbar">
 
-    <a class="logo" href="index.html">
+    <a class="logo" href="/index.html" aria-label="Bihar Academic Battle Home">
         <img
             src="/assets/logo/Bihar Academic Battle Logo Collection.png"
             alt="Bihar Academic Battle Logo"
@@ -152,34 +1096,49 @@ footer .copyright {
 
     <button
         class="menu"
+        id="menuToggle"
         type="button"
-        onclick="toggleMenu()"
-        aria-label="Toggle navigation menu"
+        aria-label="Open navigation menu"
         aria-controls="navLinks"
         aria-expanded="false"
-    >☰</button>
+    >
+        <span id="menuIcon" aria-hidden="true">☰</span>
+    </button>
 
     <div class="nav-links" id="navLinks">
-        <a class="active" href="index.html">Home</a>
-        <a href="pages/about.html">About</a>
-        <a href="pages/registration.html">Registration</a>
-        <a href="pages/results.html">Results</a>
-        <a href="pages/certificate.html">Certificates</a>
-        <a href="pages/notices.html">Notice</a>
-        <a href="pages/contact.html">Contact</a>
-        <a href="pages/school-registration.html">School Login</a>
+        <a class="active" href="/index.html">Home</a>
+        <a href="/pages/about.html">About</a>
+        <a href="/pages/registration.html">Registration</a>
+        <a href="/pages/results.html">Results</a>
+        <a href="/pages/certificate.html">Certificates</a>
+        <a href="/pages/notices.html">Notice</a>
+        <a href="/pages/contact.html">Contact</a>
+        <a href="/pages/school-registration.html">School Login</a>
         <a href="/ad.html">Admin</a>
+
+        <div class="mobile-actions">
+            <a class="login" href="/pages/student-login.html">
+                Student Login
+            </a>
+            <a class="register" href="/pages/registration.html">
+                Register Now
+            </a>
+        </div>
     </div>
 
     <div class="nav-actions">
-        <a class="login" href="pages/student-login.html">Student Login</a>
-        <a class="register" href="pages/registration.html">Register Now</a>
+        <a class="login" href="/pages/student-login.html">
+            Student Login
+        </a>
+        <a class="register" href="/pages/registration.html">
+            Register Now
+        </a>
     </div>
 
 </nav>
 </header>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="hero">
 
     <div class="slides">
@@ -206,30 +1165,29 @@ footer .copyright {
             </p>
 
             <div class="actions">
-                <a class="primary" href="pages/registration.html">
+                <a class="primary" href="/pages/registration.html">
                     👤 Register Now
                 </a>
 
-                <a class="secondary" href="pages/battles.html">
+                <a class="secondary" href="/pages/battles.html">
                     Explore Battles →
                 </a>
             </div>
         </div>
     </div>
 
-    <div class="dots">
-        <i class="on"></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
+    <div class="dots" aria-label="Hero slideshow controls">
+        <i class="on" data-slide="0" role="button" tabindex="0" aria-label="Slide 1"></i>
+        <i data-slide="1" role="button" tabindex="0" aria-label="Slide 2"></i>
+        <i data-slide="2" role="button" tabindex="0" aria-label="Slide 3"></i>
+        <i data-slide="3" role="button" tabindex="0" aria-label="Slide 4"></i>
+        <i data-slide="4" role="button" tabindex="0" aria-label="Slide 5"></i>
     </div>
 
 </section>
 
 <!-- FEATURES -->
 <section class="features">
-
     <div>
         <b>🏆</b>
         <h3>8+ Battles</h3>
@@ -259,24 +1217,20 @@ footer .copyright {
         <h3>Rankings</h3>
         <p>Track performance</p>
     </div>
-
 </section>
 
 <main>
 
 <!-- ACADEMIC BATTLES -->
 <section class="section" id="battles">
-
     <div class="section-head">
         <div>
             <span class="label">Our Battles</span>
             <h2>Academic Battles</h2>
-            <p>
-                Choose your battle, test your skills and prove your talent.
-            </p>
+            <p>Choose your battle, test your skills and prove your talent.</p>
         </div>
 
-        <a href="pages/battles.html">View All →</a>
+        <a href="/pages/battles.html">View All →</a>
     </div>
 
     <div class="battle-grid">
@@ -285,67 +1239,63 @@ footer .copyright {
             <div class="icon">📖</div>
             <h3>Bihar GK Battle</h3>
             <p>Know Your State, Know Your Pride</p>
-            <a href="battles/bihar-gk.html">Start Battle →</a>
+            <a href="/battles/bihar-gk.html">Start Battle →</a>
         </article>
 
         <article class="battle-card blue">
             <div class="icon">➗</div>
             <h3>Mathematics Battle</h3>
             <p>Think • Solve • Win</p>
-            <a href="battles/mathematics.html">Start Battle →</a>
+            <a href="/battles/mathematics.html">Start Battle →</a>
         </article>
 
         <article class="battle-card orange">
             <div class="icon">⚗️</div>
             <h3>Science Battle</h3>
             <p>Explore • Discover • Excel</p>
-            <a href="battles/science.html">Start Battle →</a>
+            <a href="/battles/science.html">Start Battle →</a>
         </article>
 
         <article class="battle-card purple">
             <div class="icon">💻</div>
             <h3>Computer Battle</h3>
             <p>Code • Logic • Future</p>
-            <a href="battles/computer.html">Start Battle →</a>
+            <a href="/battles/computer.html">Start Battle →</a>
         </article>
 
         <article class="battle-card red">
             <div class="icon">📚</div>
             <h3>English Battle</h3>
             <p>Read • Think • Express</p>
-            <a href="battles/english.html">Start Battle →</a>
+            <a href="/battles/english.html">Start Battle →</a>
         </article>
 
         <article class="battle-card blue">
             <div class="icon">✍️</div>
             <h3>Hindi Battle</h3>
             <p>पढ़ो • समझो • लिखो</p>
-            <a href="battles/hindi.html">Start Battle →</a>
+            <a href="/battles/hindi.html">Start Battle →</a>
         </article>
 
         <article class="battle-card green">
             <div class="icon">🌍</div>
             <h3>SST Battle</h3>
             <p>History • Geography • Civics</p>
-            <a href="battles/sst.html">Start Battle →</a>
+            <a href="/battles/sst.html">Start Battle →</a>
         </article>
 
         <article class="battle-card purple">
             <div class="icon">🎨</div>
             <h3>Drawing Battle</h3>
             <p>Imagine • Create • Express</p>
-            <a href="battles/drawing.html">Start Battle →</a>
+            <a href="/battles/drawing.html">Start Battle →</a>
         </article>
 
     </div>
 </section>
 
-
-
-
 <!-- REGISTRATION CTA -->
 <section class="cta">
-
     <div>
         <small>Ready to Show Your Talent?</small>
         <h2>Registration Open Now!</h2>
@@ -355,54 +1305,45 @@ footer .copyright {
         </p>
     </div>
 
-    <a href="pages/registration.html">Register Now →</a>
-
+    <a class="register" href="/pages/registration.html">
+        Register Now →
+    </a>
 </section>
 
 <!-- STATISTICS -->
 <section class="stats">
-
     <div>
         <b>50,000+</b>
         <span>Students</span>
     </div>
-
     <div>
         <b>1,200+</b>
         <span>Schools</span>
     </div>
-
     <div>
         <b>8+</b>
         <span>Academic Battles</span>
     </div>
-
     <div>
         <b>10,000+</b>
         <span>Certificates</span>
     </div>
-
     <div>
         <b>38</b>
         <span>Districts</span>
     </div>
-
 </section>
 
 <!-- SUPPORT -->
 <section class="support" id="support">
-
     <div class="support-container">
 
         <div class="support-heading">
             <span class="label">We're Here to Help</span>
-
             <h2>Need Help? Contact Support</h2>
-
             <p>
                 Students, parents and schools can contact Bihar Academic
-                Battle for registration, results, certificates and
-                other queries.
+                Battle for registration, results, certificates and other queries.
             </p>
         </div>
 
@@ -412,7 +1353,6 @@ footer .copyright {
                 <div class="support-icon">📞</div>
                 <h3>Call Us</h3>
                 <p>Talk to our support team directly.</p>
-
                 <a class="support-link" href="tel:+917015532197">
                     Call 7015532197 →
                 </a>
@@ -422,7 +1362,6 @@ footer .copyright {
                 <div class="support-icon">💬</div>
                 <h3>WhatsApp Support</h3>
                 <p>Chat with us for quick assistance.</p>
-
                 <a
                     class="support-link"
                     href="https://wa.me/917015532197?text=Hello%20Bihar%20Academic%20Battle%20Support"
@@ -437,12 +1376,11 @@ footer .copyright {
                 <div class="support-icon">✉️</div>
                 <h3>Email Support</h3>
                 <p>Send us your questions by email.</p>
-
                 <a
                     class="support-link"
                     href="mailto:biharbab00@gmail.com?subject=Bihar%20Academic%20Battle%20Support"
                 >
-                    biharbab00@gmail.com →
+                    Email Support →
                 </a>
             </div>
 
@@ -461,12 +1399,9 @@ footer .copyright {
 
 <!-- ABOUT -->
 <section class="about">
-
     <div>
         <span class="label">About Us</span>
-
         <h2>Building a Stronger Academic Future for Bihar</h2>
-
         <p>
             Bihar Academic Battle is a student-focused competitive learning
             platform designed to encourage knowledge, logical thinking,
@@ -475,27 +1410,22 @@ footer .copyright {
     </div>
 
     <div class="about-box">
-
         <div>
             <b>🎯 Mission</b>
             <p>Learn, compete and grow.</p>
         </div>
-
         <div>
             <b>🧠 Knowledge</b>
             <p>Build strong fundamentals.</p>
         </div>
-
         <div>
             <b>🏆 Recognition</b>
             <p>Reward achievement.</p>
         </div>
-
         <div>
             <b>🚀 Future</b>
             <p>Prepare for opportunities.</p>
         </div>
-
     </div>
 </section>
 
@@ -503,53 +1433,44 @@ footer .copyright {
 
 <!-- FOOTER -->
 <footer>
-
     <div class="footer-grid">
 
-        <!-- BRANDING -->
         <div class="footer-brand">
             <h2>BIHAR ACADEMIC <span>BATTLE</span></h2>
-
             <p>
                 Bihar's Academic Battle Platform.<br>
                 Better Students, Stronger Bihar.
             </p>
         </div>
 
-        <!-- PLATFORM -->
         <div>
             <h3>Platform</h3>
-            <a href="pages/about.html">About</a>
-            <a href="pages/battles.html">Battles</a>
-            <a href="pages/registration.html">Registration</a>
+            <a href="/pages/about.html">About</a>
+            <a href="/pages/battles.html">Battles</a>
+            <a href="/pages/registration.html">Registration</a>
         </div>
 
-        <!-- STUDENT -->
         <div>
             <h3>Student</h3>
-            <a href="pages/student-login.html">Login</a>
-            <a href="pages/results.html">Results</a>
-            <a href="pages/certificate.html">Certificates</a>
+            <a href="/pages/student-login.html">Login</a>
+            <a href="/pages/results.html">Results</a>
+            <a href="/pages/certificate.html">Certificates</a>
         </div>
 
-        <!-- SUPPORT LINKS -->
         <div>
             <h3>Support</h3>
-            <a href="pages/notices.html">Notice</a>
-            <a href="pages/contact.html">Contact</a>
-            <a href="pages/privacy-policy.html">Privacy Policy</a>
+            <a href="/pages/notices.html">Notice</a>
+            <a href="/pages/contact.html">Contact</a>
+            <a href="/pages/privacy-policy.html">Privacy Policy</a>
         </div>
 
-        <!-- LOCATION AND MAP -->
+        <!-- LOCATION AND GOOGLE MAP -->
         <div class="footer-location">
-
             <h3>📍 Our Location</h3>
 
             <div class="location-layout">
 
-                <!-- ADDRESS ON LEFT -->
                 <div class="location-details">
-
                     <p>
                         Shekhpur Dhab,<br>
                         Near Sant Nirankari Ashram,<br>
@@ -570,29 +1491,22 @@ footer .copyright {
 
                     <a
                         class="location-link"
-                        href="https://www.google.com/maps/dir/?api=1&destination=Shekhpur+Dhab%2C+near+Sant+Nirankari+Ashram%2C+Riverview+Apartment%2C+Akharaghat%2C+Muzaffarpur%2C+Bihar+842002"
+                        href="https://www.google.com/maps/dir/?api=1&destination=Shekhpur+Dhab%2C+near+Sant+Nirankari+Ashram%2C+Riverview+Apartment%2C+Akharaghat%2C+Susta%2C+Muzaffarpur%2C+Bihar+842002"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         🚗 Get Directions →
                     </a>
-
                 </div>
 
-                <!-- GOOGLE MAP ON RIGHT -->
                 <div class="location-map">
-
                     <iframe
                         src="https://maps.google.com/maps?q=Shekhpur%20Dhab%2C%20near%20Sant%20Nirankari%20Ashram%2C%20Riverview%20Apartment%2C%20Akharaghat%2C%20Susta%2C%20Muzaffarpur%2C%20Bihar%20842002&output=embed"
                         title="Bihar Academic Battle office location on Google Maps"
-                        width="100%"
-                        height="300"
-                        style="border:0"
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
                         allowfullscreen>
                     </iframe>
-
                 </div>
 
             </div>
@@ -603,11 +1517,127 @@ footer .copyright {
     <div class="copyright">
         © 2026 Bihar Academic Battle. All Rights Reserved.
     </div>
-
 </footer>
 
-<!-- EXISTING WEBSITE JAVASCRIPT -->
-<script src="js/main.js"></script>
+<!-- NAVBAR AND HERO SLIDER JAVASCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* MOBILE NAVBAR */
+    const navbar = document.getElementById("mainNavbar");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const menuIcon = document.getElementById("menuIcon");
+
+    function closeMenu() {
+        navLinks.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuIcon.textContent = "☰";
+    }
+
+    function openMenu() {
+        navLinks.classList.add("is-open");
+        menuToggle.setAttribute("aria-expanded", "true");
+        menuToggle.setAttribute("aria-label", "Close navigation menu");
+        menuIcon.textContent = "✕";
+    }
+
+    menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.contains("is-open");
+
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!navbar.contains(event.target)) {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeMenu();
+            menuToggle.focus();
+        }
+    });
+
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 900) {
+            closeMenu();
+        }
+    });
+
+    /* HERO IMAGE SLIDER */
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const dots = Array.from(document.querySelectorAll(".dots i"));
+
+    let currentSlide = 0;
+    let sliderTimer;
+
+    function showSlide(index) {
+        if (!slides.length) return;
+
+        currentSlide = (index + slides.length) % slides.length;
+
+        slides.forEach(function (slide, i) {
+            slide.classList.toggle("active", i === currentSlide);
+        });
+
+        dots.forEach(function (dot, i) {
+            dot.classList.toggle("on", i === currentSlide);
+            dot.setAttribute(
+                "aria-current",
+                i === currentSlide ? "true" : "false"
+            );
+        });
+    }
+
+    function startSlider() {
+        clearInterval(sliderTimer);
+
+        sliderTimer = setInterval(function () {
+            showSlide(currentSlide + 1);
+        }, 1000);
+    }
+
+    dots.forEach(function (dot) {
+        function selectSlide() {
+            const index = Number(dot.dataset.slide);
+
+            if (!Number.isNaN(index)) {
+                showSlide(index);
+                startSlider();
+            }
+        }
+
+        dot.addEventListener("click", selectSlide);
+
+        dot.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                selectSlide();
+            }
+        });
+    });
+
+    showSlide(0);
+    startSlider();
+
+});
+</script>
+
+<!-- Keep your existing website scripts if they contain other functionality.
+     Remove any duplicate navbar click handlers to prevent conflicts. -->
+<script src="/js/main.js"></script>
 
 </body>
 </html>
