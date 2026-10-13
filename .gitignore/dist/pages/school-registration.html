@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register your school for Bihar Academic Battle.">
+  <title>School Registration | Bihar Academic Battle</title>
+
+  <style>*{box-sizing:border-box}body{color:#172033;background:#f4f7fb;margin:0;font-family:Arial,sans-serif}.top-header{color:#fff;background:#1e3a8a;padding:16px 20px}.header-inner{flex-wrap:wrap;justify-content:space-between;align-items:center;gap:15px;max-width:1100px;margin:auto;display:flex}.brand{font-size:20px;font-weight:800}.nav-buttons{flex-wrap:wrap;gap:10px;display:flex}.nav-btn{color:#1e3a8a;background:#fff;border-radius:8px;padding:10px 14px;font-size:14px;font-weight:700;text-decoration:none;display:inline-block}.page-container{max-width:1000px;margin:30px auto;padding:0 15px}.page-title{text-align:center;margin-bottom:25px}.page-title h1{color:#1e3a8a;margin-bottom:8px}.page-title p{color:#64748b}.registration-card{background:#fff;border-radius:15px;padding:26px;box-shadow:0 8px 30px #00000014}.section{margin-bottom:28px}.section-title{color:#1e3a8a;background:#eff6ff;border-left:5px solid #1e3a8a;border-radius:6px;margin-bottom:18px;padding:12px 15px;font-size:18px;font-weight:700}.form-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;display:grid}.form-group{flex-direction:column;min-width:0;display:flex}.full-width{grid-column:1/-1}label{margin-bottom:7px;font-size:14px;font-weight:600}.required{color:#dc2626}input,select,textarea{color:#172033;background:#fff;border:1px solid #cbd5e1;border-radius:8px;width:100%;padding:12px 13px;font-size:15px}textarea{resize:vertical;min-height:90px}input:focus,select:focus,textarea:focus{border-color:#2563eb;outline:2px solid #93c5fd}.login-info{color:#9a3412;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;margin-bottom:18px;padding:13px;line-height:1.5}.terms{align-items:flex-start;gap:10px;margin:20px 0;display:flex}.terms input{width:auto;margin-top:3px}.terms label{line-height:1.5}.submit-btn{color:#fff;cursor:pointer;background:#1e3a8a;border:0;border-radius:9px;width:100%;padding:15px;font-size:16px;font-weight:700}.submit-btn:hover{background:#172e70}.submit-btn:disabled{opacity:.6;cursor:not-allowed}.message{overflow-wrap:anywhere;border-radius:8px;margin-bottom:18px;padding:13px;line-height:1.5;display:none}.success{color:#166534;background:#dcfce7}.error{color:#991b1b;background:#fee2e2}.login-bottom{text-align:center;color:#64748b;margin-top:22px}.login-bottom a{color:#1d4ed8;font-weight:700}@media (width<=650px){.header-inner{text-align:center;flex-direction:column}.nav-buttons{justify-content:center}.form-grid{grid-template-columns:1fr}.full-width{grid-column:auto}.registration-card{padding:17px}.section-title{font-size:16px}}</style>
+  <script type="module" crossorigin src="/assets/registration-BplZEdOi.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/firebase-DHTEOGjq.js">
+  <link rel="stylesheet" crossorigin href="/assets/style-WlNi0FRm.css">
+</head>
+
+<body>
+<header class="top-header">
+  <div class="header-inner">
+    <div class="brand">🎓 BIHAR ACADEMIC BATTLE</div>
+    <div class="nav-buttons">
+      <a class="nav-btn" href="../login.html">🔐 Login Here</a>
+      <a class="nav-btn" href="school-registration.html">🏫 School Registration</a>
+    </div>
+  </div>
+</header>
+
+<main class="page-container">
+  <div class="page-title">
+    <h1>School Registration</h1>
+    <p>Register your school for Bihar Academic Battle</p>
+  </div>
+
+  <div class="registration-card">
+    <div id="successMessage" class="message success" role="status" aria-live="polite"></div>
+    <div id="errorMessage" class="message error" role="alert" aria-live="assertive"></div>
+
+    <form id="schoolRegistrationForm">
+      <section class="section">
+        <div class="section-title">🏫 School Information</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="schoolName">School Name <span class="required">*</span></label>
+            <input id="schoolName" maxlength="150" required>
+          </div>
+
+          <div class="form-group">
+            <label for="schoolCode">School Code</label>
+            <input id="schoolCode" maxlength="50">
+          </div>
+
+          <div class="form-group">
+            <label for="schoolType">School Type</label>
+            <select id="schoolType">
+              <option value="">Select School Type</option>
+              <option>Government</option>
+              <option>Private</option>
+              <option>Government Aided</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="medium">Medium of Instruction</label>
+            <select id="medium">
+              <option value="">Select Medium</option>
+              <option>Hindi</option>
+              <option>English</option>
+              <option>Hindi &amp; English</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="numberOfStudents">Number of Students</label>
+            <input id="numberOfStudents" type="number" min="0" max="1000000" step="1" placeholder="Total students">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">👨‍🏫 Principal Information</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="principalName">Principal Name <span class="required">*</span></label>
+            <input id="principalName" maxlength="120" required>
+          </div>
+
+          <div class="form-group">
+            <label for="principalMobile">Principal Mobile</label>
+            <input id="principalMobile" type="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" placeholder="10 digit mobile number">
+          </div>
+
+          <div class="form-group">
+            <label for="schoolEmail">School Email</label>
+            <input id="schoolEmail" type="email" maxlength="254">
+          </div>
+
+          <div class="form-group">
+            <label for="schoolContact">School Contact <span class="required">*</span></label>
+            <input id="schoolContact" type="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" required placeholder="10 digit mobile number">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">📍 School Address</div>
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label for="completeAddress">Complete Address <span class="required">*</span></label>
+            <textarea id="completeAddress" maxlength="500" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="district">District <span class="required">*</span></label>
+            <input id="district" maxlength="100" required>
+          </div>
+
+          <div class="form-group">
+            <label for="block">Block</label>
+            <input id="block" maxlength="100">
+          </div>
+
+          <div class="form-group">
+            <label for="pinCode">PIN Code <span class="required">*</span></label>
+            <input id="pinCode" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" required placeholder="6 digit PIN">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">👨‍💻 School Coordinator</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="coordinatorName">Coordinator Name</label>
+            <input id="coordinatorName" maxlength="120">
+          </div>
+
+          <div class="form-group">
+            <label for="coordinatorMobile">Coordinator Mobile</label>
+            <input id="coordinatorMobile" type="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" placeholder="10 digit mobile number">
+          </div>
+
+          <div class="form-group">
+            <label for="coordinatorEmail">Coordinator Email</label>
+            <input id="coordinatorEmail" type="email" maxlength="254">
+          </div>
+
+          <div class="form-group">
+            <label for="coordinatorDesignation">Designation</label>
+            <input id="coordinatorDesignation" maxlength="100" placeholder="Teacher / Coordinator">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">🔐 School Login Credentials</div>
+        <div class="login-info">
+          इस ईमेल और पासवर्ड से स्कूल लॉगिन करेगा। पासवर्ड कम से कम 6 अक्षरों का रखें।
+          पासवर्ड Database में सेव नहीं किया जाता; Firebase Authentication इसे संभालता है।
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="loginEmail">Login Email <span class="required">*</span></label>
+            <input id="loginEmail" type="email" autocomplete="username" maxlength="254" required>
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword">Password <span class="required">*</span></label>
+            <input id="loginPassword" type="password" minlength="6" maxlength="128" autocomplete="new-password" required>
+          </div>
+        </div>
+      </section>
+
+      <div class="terms">
+        <input id="terms" type="checkbox" required>
+        <label for="terms">
+          मैं पुष्टि करता/करती हूँ कि दी गई जानकारी सही है और Bihar Academic Battle की शर्तों से सहमत हूँ।
+        </label>
+      </div>
+
+      <button type="submit" id="submitBtn" class="submit-btn">
+        🏫 Submit School Registration
+      </button>
+    </form>
+
+    <div class="login-bottom">
+      Already registered? <a href="../login.html">Login Here</a>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
