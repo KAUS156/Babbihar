@@ -11,6 +11,10 @@ const pages = {
   registration: resolve(root, "pages/school-registration.html"),
 };
 
+if (existsSync(resolve(root, "ad.html"))) {
+  pages.admin = resolve(root, "ad.html");
+}
+
 if (existsSync(resolve(root, "dashboard.html"))) {
   pages.dashboard = resolve(root, "dashboard.html");
 }
