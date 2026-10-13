@@ -1,6 +1,19 @@
 
 import { defineConfig } from "vite";
 import { resolve } from "node:path";
+import { existsSync } from "node:fs";
+
+const root = process.cwd();
+
+const pages = {
+  home: resolve(root, "index.html"),
+  login: resolve(root, "login.html"),
+  registration: resolve(root, "pages/school-registration.html"),
+};
+
+if (existsSync(resolve(root, "dashboard.html"))) {
+  pages.dashboard = resolve(root, "dashboard.html");
+}
 
 export default defineConfig({
   base: "/",
@@ -8,15 +21,7 @@ export default defineConfig({
     outDir: "dist",
     emptyOutDir: true,
     rollupOptions: {
-      input: {
-        home: resolve(process.cwd(), "index.html"),
-        login: resolve(process.cwd(), "login.html"),
-        dashboard: resolve(process.cwd(), "dashboard.html"),
-        registration: resolve(
-          process.cwd(),
-          "pages/school-registration.html"
-        )
-      }
-    }
-  }
+      input: pages,
+    },
+  },
 });
