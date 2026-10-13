@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#082b63">
+<title>Admin Panel | Bihar Academic Battle</title>
+<style>*{box-sizing:border-box}body{color:#172033;background:#f1f5f9;margin:0;font-family:Arial,sans-serif}header{color:#fff;background:#082b63;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:18px 4%;display:flex}header h1{margin:0;font-size:21px}main{width:94%;max-width:1400px;margin:25px auto}.card{background:#fff;border-radius:14px;margin-bottom:22px;padding:22px;box-shadow:0 5px 22px #0f172a0f}h2{color:#082b63;margin-top:0}.login-card{max-width:430px;margin:55px auto}label{margin:15px 0 7px;font-weight:700;display:block}input{border:1px solid #cbd5e1;border-radius:8px;width:100%;min-width:0;padding:12px;font-size:15px}button{color:#fff;cursor:pointer;background:#0b57d0;border:0;border-radius:8px;padding:11px 15px;font-weight:700}button:disabled{opacity:.6;cursor:wait}.login-btn{width:100%;margin-top:20px}.logout-btn{background:#dc2626}.refresh-btn{background:#334155}.message{overflow-wrap:anywhere;margin-top:14px;line-height:1.5}.error{color:#b91c1c}.success{color:#15803d}.muted{color:#64748b}.stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:18px;display:grid}.stat{background:#eff6ff;border-radius:10px;padding:18px}.stat span{color:#475569;margin-bottom:8px;font-size:13px;display:block}.stat strong{color:#082b63;overflow-wrap:anywhere;font-size:25px}.toolbar{flex-wrap:wrap;gap:10px;margin:18px 0;display:flex}.toolbar input{flex:1;min-width:200px}.table-wrap{width:100%;overflow:auto}table{border-collapse:collapse;width:100%;min-width:850px}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #e2e8f0;padding:12px}th{color:#082b63;white-space:nowrap;background:#eff6ff}td{overflow-wrap:anywhere}.status{color:#166534;background:#dcfce7;border-radius:20px;padding:5px 9px;font-size:12px;font-weight:700;display:inline-block}.empty{text-align:center;color:#64748b;padding:25px}.view-btn{white-space:nowrap;padding:8px 11px}dialog{border:0;border-radius:14px;width:min(850px,94%);max-height:85vh;padding:24px;overflow:auto;box-shadow:0 20px 70px #0004}dialog::backdrop{background:#0f172a99}.detail-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;display:grid}.detail-item{border:1px solid #e2e8f0;border-radius:8px;min-width:0;padding:12px}.detail-item strong{color:#64748b;overflow-wrap:anywhere;margin-bottom:7px;font-size:12px;display:block}.detail-item span{white-space:pre-wrap;overflow-wrap:anywhere;display:block}.dialog-actions{justify-content:flex-end;margin-top:20px;display:flex}[hidden]{display:none!important}@media (width<=650px){.stats,.detail-grid{grid-template-columns:1fr}.card{padding:16px}header h1{font-size:18px}}</style>
+  <script type="module" crossorigin src="/assets/admin-CRxRF139.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/firebase-BUSfOZUq.js">
+</head>
+<body>
+<header>
+<h1>🎓 Bihar Academic Battle — Admin</h1>
+<button id="logoutBtn" class="logout-btn" hidden>
+Logout
+</button>
+</header>
+<main>
+<!-- Admin Login -->
+<section id="loginSection" class="card login-card">
+<h2>Admin Login</h2>
+<p class="muted">Sign in with your authorized admin account.</p>
+<form id="loginForm">
+<label for="email">Admin Email</label>
+<input id="email" type="email"
+autocomplete="username" required>
+<label for="password">Password</label>
+<input id="password" type="password"
+autocomplete="current-password" required>
+<button id="loginBtn" class="login-btn" type="submit">
+Login to Dashboard
+</button>
+</form>
+<p id="loginMessage" class="message" role="status"></p>
+</section>
+<!-- Dashboard -->
+<section id="dashboard" hidden>
+<div class="card">
+<h2>Admin Dashboard</h2>
+<p id="adminEmail" class="muted"></p>
+<div class="stats">
+<div class="stat">
+<span>Total Registered Schools</span>
+<strong id="totalSchools">0</strong>
+</div>
+<div class="stat">
+<span>Active Schools</span>
+<strong id="activeSchools">0</strong>
+</div>
+<div class="stat">
+<span>Districts Represented</span>
+<strong id="districtCount">0</strong>
+</div>
+</div>
+<p id="dashboardMessage" class="message" role="status"></p>
+</div>
+<div class="card">
+<h2>Complete School Registration Data</h2>
+<p class="muted">
+View every field saved in Firebase when a school registered.
+</p>
+<div class="toolbar">
+<input id="searchInput" type="search"
+placeholder="Search school, UID, principal, email, district..."
+<button id="refreshBtn" class="refresh-btn" type="button">
+Refresh Data
+</button>
+</div>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>School Name</th>
+<th>Principal</th>
+<th>Login Email</th>
+<th>Contact</th>
+<th>District</th>
+<th>Students</th>
+<th>Status</th>
+<th>Full Details</th>
+</tr>
+</thead>
+<tbody id="schoolsBody">
+<tr>
+<td colspan="9" class="empty">Loading...</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="card">
+<h2>All Registered Students</h2>
+<p class="muted">Student data from each school and the global studentRegistrations list.</p>
+<div class="toolbar"><input id="studentSearchInput" type="search" placeholder="Search student, school, class, mobile, subject..."<button id="refreshStudentsBtn" class="refresh-btn" type="button">Refresh Students</button></div>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Student Name</th><th>Father/Guardian</th><th>Class</th><th>Mobile</th><th>School</th><th>School Code</th><th>Subjects</th><th>Status</th><th>Full Data</th></tr></thead><tbody id="studentsBody"><tr><td colspan="10" class="empty">Loading students...</td></tr></tbody></table></div>
+</div>
+</section>
+</main>
+<!-- Full registration details -->
+<dialog id="detailsDialog">
+<h2 id="detailsTitle">School Details</h2>
+<div id="detailsContent" class="detail-grid"></div>
+<div class="dialog-actions">
+<button id="closeDetailsBtn" type="button">Close</button>
+</div>
+</dialog>
+<dialog id="studentDetailsDialog"><h2 id="studentDetailsTitle">Student Details</h2><div id="studentDetailsContent" class="detail-grid"></div><div class="dialog-actions"><button id="closeStudentDetailsBtn" type="button">Close</button></div></dialog>
+</body>
+</html>
