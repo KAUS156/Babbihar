@@ -5,9 +5,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "vite",
     "dev": "vite",
     "build": "vite build",
+    "start": "vite",
     "preview": "vite preview",
     "test": "echo \"No tests specified\" && exit 0"
   },

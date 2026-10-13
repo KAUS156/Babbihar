@@ -14,7 +14,7 @@ export const firebaseConfig = {
   databaseURL: "https://babbihar-23fcc-default-rtdb.firebaseio.com/"
 };
 
-const app = getApps().length
+const app = getApps().length > 0
   ? getApp()
   : initializeApp(firebaseConfig);
 

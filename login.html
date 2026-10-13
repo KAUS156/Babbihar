@@ -4,19 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1e3a8a">
   <meta name="description" content="Bihar Academic Battle School Login">
   <title>School Login | Bihar Academic Battle</title>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       min-height: 100vh;
       display: grid;
       place-items: center;
-      padding: 20px;
-      background: #f1f5f9;
+      padding: 18px;
+      background: linear-gradient(135deg, #eff6ff, #f1f5f9, #e0e7ff);
       font-family: Arial, sans-serif;
       color: #172033;
     }
@@ -26,113 +29,162 @@
       max-width: 440px;
       padding: 28px;
       background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,.08);
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      box-shadow: 0 12px 40px rgba(15, 23, 42, .10);
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 43px;
+      margin-bottom: 8px;
     }
 
     h1 {
-      margin-top: 0;
+      margin: 0;
+      text-align: center;
       color: #1e3a8a;
       font-size: 25px;
     }
 
     .subtitle {
+      text-align: center;
       color: #64748b;
-      line-height: 1.5;
+      line-height: 1.6;
+      margin-bottom: 24px;
     }
 
     label {
       display: block;
       margin: 17px 0 7px;
-      font-weight: 700;
       font-size: 14px;
+      font-weight: 700;
     }
 
     input {
+      display: block;
       width: 100%;
-      padding: 13px;
+      min-height: 48px;
+      padding: 12px;
       border: 1px solid #cbd5e1;
-      border-radius: 8px;
+      border-radius: 9px;
+      background: #fff;
+      color: #172033;
       font-size: 16px;
     }
 
     input:focus {
-      outline: 2px solid #93c5fd;
+      outline: 2px solid #bfdbfe;
       border-color: #2563eb;
     }
 
     button {
       width: 100%;
+      min-height: 48px;
       margin-top: 22px;
-      padding: 14px;
+      padding: 12px;
       border: 0;
-      border-radius: 8px;
+      border-radius: 9px;
       background: #1e3a8a;
-      color: #fff;
+      color: white;
       font-size: 16px;
       font-weight: 700;
       cursor: pointer;
     }
 
     button:disabled {
-      opacity: .6;
-      cursor: not-allowed;
+      opacity: .65;
+      cursor: wait;
     }
 
     .message {
       display: none;
+      margin-top: 16px;
       padding: 12px;
-      border-radius: 8px;
-      margin-top: 15px;
+      border-radius: 9px;
+      font-size: 14px;
+      line-height: 1.6;
       overflow-wrap: anywhere;
-      line-height: 1.5;
     }
 
     .error {
+      display: block;
       color: #991b1b;
       background: #fee2e2;
     }
 
     .success {
+      display: block;
       color: #166534;
       background: #dcfce7;
     }
 
+    .info {
+      display: block;
+      color: #1e40af;
+      background: #dbeafe;
+    }
+
     .bottom {
-      margin-top: 20px;
+      margin-top: 22px;
       text-align: center;
+      font-size: 14px;
+      line-height: 1.8;
     }
 
     a {
       color: #1d4ed8;
       font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 12px;
+      margin-top: 20px;
     }
   </style>
 </head>
 
 <body>
   <main class="card">
-    <h1>🎓 School Login</h1>
-    <p class="subtitle">Bihar Academic Battle</p>
+    <div class="logo">🎓</div>
+
+    <h1>School Login</h1>
+    <p class="subtitle">
+      BIHAR ACADEMIC BATTLE<br>
+      Bihar's Academic Battle Platform
+    </p>
 
     <form id="loginForm">
       <label for="email">Login Email</label>
       <input
         id="email"
+        name="email"
         type="email"
+        placeholder="स्कूल का ईमेल दर्ज करें"
         autocomplete="username"
+        autocapitalize="none"
+        spellcheck="false"
         required
       >
 
       <label for="password">Password</label>
       <input
         id="password"
+        name="password"
         type="password"
+        placeholder="पासवर्ड दर्ज करें"
         autocomplete="current-password"
         required
       >
 
-      <button type="submit" id="loginBtn">
+      <button id="loginBtn" type="submit">
         🔐 Login
       </button>
     </form>
@@ -149,81 +201,102 @@
       <a href="./pages/school-registration.html">
         Register Here
       </a>
+      <br>
+      <a href="./index.html">← Home Page</a>
+    </div>
+
+    <div class="footer">
+      © Bihar Academic Battle
     </div>
   </main>
 
   <script type="module">
+    
+
     import { auth, db } from "./firebase.js";
 
-    import {
-      signInWithEmailAndPassword,
-      signOut
-    } from "firebase/auth";
+import {
+  signInWithEmailAndPassword
+} from "firebase/auth";
 
-    import {
-      ref,
-      get
-    } from "firebase/database";
+import {
+  ref,
+  get
+} from "firebase/database";
 
     const form = document.getElementById("loginForm");
-    const message = document.getElementById("message");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
     const loginBtn = document.getElementById("loginBtn");
+    const messageBox = document.getElementById("message");
+
+    let submitting = false;
 
     function showMessage(text, type = "error") {
-      message.textContent = text;
-      message.className = "message " + type;
-      message.style.display = "block";
+      messageBox.textContent = text;
+      messageBox.className = "message " + type;
+      messageBox.style.display = "block";
     }
 
+    function hideMessage() {
+      messageBox.textContent = "";
+      messageBox.className = "message";
+      messageBox.style.display = "none";
+    }
+
+    function setLoading(loading, text = "🔐 Login") {
+      loginBtn.disabled = loading;
+      loginBtn.textContent = loading ? text : "🔐 Login";
+    }
+
+    // Prevent ordinary browser form navigation/reload.
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
+      if (submitting) return;
       if (!form.reportValidity()) return;
 
-      loginBtn.disabled = true;
-      loginBtn.textContent = "Checking account...";
-      message.style.display = "none";
+      submitting = true;
+      setLoading(true, "Checking account...");
+      hideMessage();
 
-      let authenticated = false;
+      let authenticatedUser = null;
 
       try {
-        const email =
-          document.getElementById("email").value.trim();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
 
-        const password =
-          document.getElementById("password").value;
-
-        const credential = await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
+        // Step 1: Authenticate with Firebase.
+        const credential = await withTimeout(
+          signInWithEmailAndPassword(auth, email, password),
+          20000,
+          "Authentication में जवाब नहीं मिला। इंटरनेट और Firebase कनेक्शन जाँचें।"
         );
 
-        authenticated = true;
+        authenticatedUser = credential.user;
 
-        const user = credential.user;
+        // Step 2: Read the profile belonging to this UID.
+        setLoading(true, "Checking school profile...");
 
-        const snapshot = await get(
-          ref(db, "schools/" + user.uid)
+        const snapshot = await withTimeout(
+          get(ref(db, "schools/" + authenticatedUser.uid)),
+          15000,
+          "Login हो गया, लेकिन स्कूल प्रोफाइल का जवाब नहीं मिला। Database Rules और इंटरनेट जाँचें।"
         );
 
         if (!snapshot.exists()) {
-          await signOut(auth);
-          authenticated = false;
-
           throw new Error(
-            "स्कूल प्रोफाइल नहीं मिला। Registration और Firebase Database रिकॉर्ड जाँचें।"
+            "इस UID पर स्कूल प्रोफाइल नहीं मिली। Firebase Database में schools/" +
+            authenticatedUser.uid +
+            " रिकॉर्ड जाँचें।"
           );
         }
 
         const school = snapshot.val();
 
         if (school.status !== "active") {
-          await signOut(auth);
-          authenticated = false;
-
           throw new Error(
-            "आपका स्कूल अकाउंट अभी सक्रिय नहीं है। Administrator से संपर्क करें।"
+            "आपका स्कूल अकाउंट Active नहीं है। Administrator से संपर्क करें।"
           );
         }
 
@@ -232,54 +305,92 @@
           "success"
         );
 
-        window.location.replace("./dashboard.html");
+        // IMPORTANT:
+        // Change this path if your dashboard is in another folder.
+        window.location.assign("./dashboard.html");
 
       } catch (error) {
-        console.error("Login error:", error);
+        console.error("School Login Error:", error.code, error.message);
 
-        const messages = {
-          "auth/invalid-credential":
-            "ईमेल या पासवर्ड गलत है।",
-          "auth/user-not-found":
-            "इस ईमेल से कोई अकाउंट नहीं मिला।",
-          "auth/wrong-password":
-            "पासवर्ड गलत है।",
-          "auth/invalid-email":
-            "कृपया सही ईमेल दर्ज करें।",
-          "auth/invalid-api-key":
-            "Firebase API Key जाँचें।",
-          "auth/too-many-requests":
-            "बहुत अधिक प्रयास हुए हैं। कुछ समय बाद दोबारा प्रयास करें।",
-          "auth/network-request-failed":
-            "नेटवर्क समस्या। इंटरनेट और Firebase SDK कनेक्शन जाँचें।",
-          "PERMISSION_DENIED":
-            "Database permission denied. Firebase Rules जाँचें।",
-          "permission-denied":
-            "Database permission denied. Firebase Rules जाँचें।"
-        };
-
-        showMessage(
-          messages[error.code] ||
-          error.message ||
-          "Login असफल हुआ। कृपया दोबारा प्रयास करें।"
-        );
-
-        // Do not automatically sign out after a temporary
-        // database/network error if authentication succeeded.
-        if (
-          authenticated &&
-          error.code === "PERMISSION_DENIED"
-        ) {
-          console.error(
-            "Authentication succeeded but database access failed."
-          );
-        }
+        showMessage(getErrorMessage(error), "error");
 
       } finally {
-        loginBtn.disabled = false;
-        loginBtn.textContent = "🔐 Login";
+        submitting = false;
+        setLoading(false);
       }
     });
+
+    function withTimeout(promise, milliseconds, timeoutMessage) {
+      let timer;
+
+      const timeout = new Promise((_, reject) => {
+        timer = setTimeout(() => {
+          const error = new Error(timeoutMessage);
+          error.code = "app/timeout";
+          reject(error);
+        }, milliseconds);
+      });
+
+      return Promise.race([promise, timeout]).finally(() => {
+        clearTimeout(timer);
+      });
+    }
+
+    function getErrorMessage(error) {
+      const code = error?.code || "";
+
+      const errors = {
+        "auth/invalid-credential":
+          "ईमेल या पासवर्ड गलत है।",
+
+        "auth/user-not-found":
+          "इस ईमेल से Firebase Authentication अकाउंट नहीं मिला।",
+
+        "auth/wrong-password":
+          "पासवर्ड गलत है।",
+
+        "auth/invalid-email":
+          "कृपया सही ईमेल दर्ज करें।",
+
+        "auth/invalid-api-key":
+          "Firebase API Key गलत है। firebase.js जाँचें।",
+
+        "auth/unauthorized-domain":
+          "यह Netlify domain Firebase में Authorized नहीं है।",
+
+        "auth/too-many-requests":
+          "बहुत अधिक प्रयास हुए हैं। कुछ समय बाद दोबारा प्रयास करें।",
+
+        "auth/network-request-failed":
+          "नेटवर्क समस्या। मोबाइल इंटरनेट बदलकर या Wi-Fi से प्रयास करें।",
+
+        "auth/operation-not-allowed":
+          "Firebase Console में Email/Password sign-in चालू करें।",
+
+        "PERMISSION_DENIED":
+          "Firebase Database ने अनुमति नहीं दी। Realtime Database Rules जाँचें।",
+
+        "permission-denied":
+          "Firebase Database ने अनुमति नहीं दी। स्कूल UID और Rules जाँचें।",
+
+        "app/timeout":
+          error.message
+      };
+
+      if (errors[code]) return errors[code];
+
+      if (code === "auth/email-already-in-use") {
+        return "यह ईमेल पहले से पंजीकृत है।";
+      }
+
+      if (code === "auth/account-exists-with-different-credential") {
+        return "इस ईमेल के लिए दूसरा sign-in method इस्तेमाल हुआ है।";
+      }
+
+      return error?.message
+        ? "Login असफल: " + error.message
+        : "Login असफल हुआ। Browser Console में error जाँचें।";
+    }
   </script>
 </body>
 </html>
