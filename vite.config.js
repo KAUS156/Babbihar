@@ -6,7 +6,7 @@ import { existsSync } from "node:fs";
 const root = process.cwd();
 
 const pages = {
-  home: "index.html",
+  index: "index.html",
   login: "login.html",
   dashboard: "dashboard.html",
   registration: "pages/school-registration.html"

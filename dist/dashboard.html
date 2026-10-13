@@ -5,9 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#1e3a8a">
 <title>School Dashboard | Bihar Academic Battle</title>
-<style>:root{--blue:#1e3a8a;--blue2:#2563eb;--bg:#f1f5f9;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--green:#166534;--red:#991b1b}*{box-sizing:border-box}body{background:var(--bg);color:var(--ink);margin:0;font:15px Arial,sans-serif}header{background:var(--blue);color:#fff;padding:14px 18px}.head{justify-content:space-between;align-items:center;gap:12px;max-width:1150px;margin:auto;display:flex}.brand{font-size:18px;font-weight:800}button{cursor:pointer;border:0;border-radius:8px;padding:10px 13px;font-weight:700}.logout{color:var(--blue);background:#fff}button:disabled{opacity:.55;cursor:not-allowed}main{max-width:1150px;margin:22px auto;padding:0 14px}.panel{background:#fff;border-radius:13px;margin-bottom:17px;padding:20px;box-shadow:0 4px 18px #0f172a0b}h1{color:var(--blue);margin:0 0 7px;font-size:24px}h2{color:var(--blue);border-bottom:1px solid var(--line);margin:0 0 15px;padding-bottom:10px;font-size:19px}.sub,.hint{color:var(--muted);line-height:1.5}.school-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;display:grid}.info{background:#f8fafc;border:1px solid #edf2f7;border-radius:8px;min-width:0;padding:11px}.info small{color:var(--muted);margin-bottom:5px;display:block}.info strong{overflow-wrap:anywhere}.stats{flex-wrap:wrap;gap:8px;margin-top:13px;display:flex}.pill{color:#1e3a8a;background:#e0e7ff;border-radius:20px;padding:7px 11px;font-size:13px;font-weight:700}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;display:grid}.field label{margin-bottom:6px;font-size:13px;font-weight:700;display:block}.field input,.field select{width:100%;font:inherit;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:11px}.subjects{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:8px;display:grid}.subject{border:1px solid var(--line);background:#fafcff;border-radius:8px;align-items:center;gap:7px;padding:10px;display:flex}.actions{flex-wrap:wrap;gap:8px;margin-top:16px;display:flex}.primary{background:var(--blue);color:#fff}.secondary{color:#172033;background:#e2e8f0}.danger{color:var(--red);background:#fee2e2}.message{overflow-wrap:anywhere;border-radius:8px;margin:12px 0 0;padding:11px 12px;line-height:1.5;display:none}.error{color:var(--red);background:#fee2e2;display:block}.success{color:var(--green);background:#dcfce7;display:block}.hint{font-size:13px}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:760px}th,td{text-align:left;border-bottom:1px solid var(--line);vertical-align:top;padding:11px 10px}th{text-transform:uppercase;color:#475569;background:#f8fafc;font-size:12px}td{font-size:14px}.mini{margin:2px;padding:7px 9px;font-size:12px}.status{color:#92400e;background:#fef3c7;border-radius:20px;padding:5px 8px;font-size:12px;font-weight:700;display:inline-block}.empty{text-align:center;color:var(--muted);padding:25px}.hidden{display:none!important}.session-row{flex-wrap:wrap;align-items:end;gap:12px;display:flex}.session-row .field{flex:1;min-width:210px}.release{color:#9a3412;background:#fff7ed;border:1px solid #fed7aa;border-radius:9px;margin-top:12px;padding:12px}.release.ready{color:#166534;background:#dcfce7;border-color:#bbf7d0}@media (width<=800px){.school-grid,.subjects,.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (width<=520px){.head{align-items:flex-start}.brand{font-size:15px}.school-grid,.grid{grid-template-columns:1fr}.panel{padding:15px}main{margin-top:14px}.subjects{grid-template-columns:1fr 1fr}}@media print{header,.no-print,#formPanel,#sessionPanel,#studentListPanel{display:none!important}body{background:#fff}.panel{box-shadow:none;border:0;margin:0;padding:0}#admitCard{display:block!important}}</style>
-  <script type="module" crossorigin src="/assets/dashboard-Bh1GNQmp.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/firebase-DHTEOGjq.js">
+<style>
+:root{--blue:#1e3a8a;--blue2:#2563eb;--bg:#f1f5f9;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--green:#166534;--red:#991b1b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px Arial,sans-serif}
+header{background:var(--blue);color:#fff;padding:14px 18px}.head{max-width:1150px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:800;font-size:18px}
+button{border:0;border-radius:8px;padding:10px 13px;font-weight:700;cursor:pointer}.logout{background:#fff;color:var(--blue)}button:disabled{opacity:.55;cursor:not-allowed}
+main{max-width:1150px;margin:22px auto;padding:0 14px}.panel{background:#fff;border-radius:13px;padding:20px;margin-bottom:17px;box-shadow:0 4px 18px #0f172a0b}
+h1{font-size:24px;color:var(--blue);margin:0 0 7px}h2{font-size:19px;color:var(--blue);margin:0 0 15px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.sub,.hint{color:var(--muted);line-height:1.5}.school-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.info{background:#f8fafc;border:1px solid #edf2f7;border-radius:8px;padding:11px;min-width:0}.info small{display:block;color:var(--muted);margin-bottom:5px}.info strong{overflow-wrap:anywhere}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.pill{border-radius:20px;background:#e0e7ff;color:#1e3a8a;padding:7px 11px;font-size:13px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.field label{display:block;font-weight:700;font-size:13px;margin-bottom:6px}.field input,.field select{width:100%;border:1px solid #cbd5e1;border-radius:8px;padding:11px;font:inherit;background:#fff}
+.subjects{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:8px}.subject{display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:8px;padding:10px;background:#fafcff}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.primary{background:var(--blue);color:white}.secondary{background:#e2e8f0;color:#172033}.danger{background:#fee2e2;color:var(--red)}.message{display:none;margin:12px 0 0;padding:11px 12px;border-radius:8px;line-height:1.5;overflow-wrap:anywhere}.error{display:block;background:#fee2e2;color:var(--red)}.success{display:block;background:#dcfce7;color:var(--green)}.hint{font-size:13px}
+.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:760px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 10px;vertical-align:top}th{font-size:12px;text-transform:uppercase;color:#475569;background:#f8fafc}td{font-size:14px}.mini{padding:7px 9px;font-size:12px;margin:2px}.status{display:inline-block;padding:5px 8px;border-radius:20px;font-size:12px;font-weight:700;background:#fef3c7;color:#92400e}.empty{text-align:center;padding:25px;color:var(--muted)}.hidden{display:none!important}
+.session-row{display:flex;align-items:end;gap:12px;flex-wrap:wrap}.session-row .field{min-width:210px;flex:1}.release{padding:12px;border-radius:9px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;margin-top:12px}.release.ready{background:#dcfce7;border-color:#bbf7d0;color:#166534}
+@media(max-width:800px){.school-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.subjects{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.head{align-items:flex-start}.brand{font-size:15px}.school-grid,.grid{grid-template-columns:1fr}.panel{padding:15px}main{margin-top:14px}.subjects{grid-template-columns:1fr 1fr}}
+@media print{header,.no-print,#formPanel,#sessionPanel,#studentListPanel{display:none!important}body{background:#fff}.panel{box-shadow:none;border:0;margin:0;padding:0}#admitCard{display:block!important}}
+</style>
 </head>
 <body>
 <header><div class="head"><div class="brand">🎓 BIHAR ACADEMIC BATTLE</div><button id="logoutBtn" class="logout" type="button">Logout ↗</button></div></header>
@@ -88,6 +103,194 @@
     </section>
   </div>
   <div id="pageError" class="message" role="alert"></div>
-</main>
+</main>
+<script type="module">
+
+
+  import { auth, db } from "./firebase.js";
+
+  import {
+    onAuthStateChanged,
+    signOut
+  } from "firebase/auth";
+
+  import {
+    ref,
+    get,
+    set,
+    update,
+    push
+  } from "firebase/database";
+
+  
+
+
+const $ = id => document.getElementById(id);
+const form = $("studentForm"), submitBtn = $("submitBtn");
+let currentUser = null, school = {}, registrations = {}, allRegistrations = {};
+let unsubscribeStudents = null, unsubscribeRelease = null;
+let activeSession = "2026-2027", admitCardsPublished = false, currentReleaseSettings = {};
+
+function message(id, text, type="error"){const el=$(id);el.textContent=text;el.className="message "+type}
+function clearMessage(id){$(id).textContent="";$(id).className="message"}
+function safeText(value){return value==null||value===""?"—":String(value)}
+function setText(id,value){$(id).textContent=safeText(value)}
+function selectedSubjects(){return [...document.querySelectorAll("#subjects input:checked")].map(el=>el.value)}
+function sessionOf(s){return s.session || s.academicSession || "2026-2027"}
+function sessionLabel(s){return s.replace("-", "–")}
+
+function renderStudents(){
+  const body=$("studentsBody");
+  const rows=Object.entries(registrations).sort((a,b)=>String(b[1].updatedAt||b[1].createdAt||"").localeCompare(String(a[1].updatedAt||a[1].createdAt||"")));
+  $("studentCount").textContent=rows.length;
+  if(!rows.length){body.innerHTML='<tr><td colspan="6" class="empty">इस Session में विद्यार्थी नहीं हैं। Registration करने या दूसरा Session चुनने का प्रयास करें।</td></tr>';return}
+  body.replaceChildren();
+  for(const [id,s] of rows){
+    const tr=document.createElement("tr");
+    const vals=[`${safeText(s.studentName)}\nअभिभावक: ${safeText(s.fatherName)}`,`कक्षा ${safeText(s.className)}\nरोल: ${safeText(s.rollNumber)}`,Array.isArray(s.subjects)?s.subjects.join(", "):safeText(s.subjects),s.status||"pending"];
+    vals.forEach((v,i)=>{const td=document.createElement("td");td.style.whiteSpace="pre-line";if(i===3){const badge=document.createElement("span");badge.className="status";badge.textContent=v;td.appendChild(badge)}else td.textContent=v;tr.appendChild(td)});
+    const cardTd=document.createElement("td"), cardBtn=document.createElement("button");
+    cardBtn.type="button";cardBtn.className="primary mini";cardBtn.textContent=admitCardsPublished?"View / Print":"Not Released";cardBtn.disabled=!admitCardsPublished;
+    cardBtn.addEventListener("click",()=>showAdmitCard(id,s));cardTd.appendChild(cardBtn);tr.appendChild(cardTd);
+    const actions=document.createElement("td"), edit=document.createElement("button"), del=document.createElement("button");
+    edit.type="button";edit.className="secondary mini";edit.textContent="Edit";edit.addEventListener("click",()=>editStudent(id,s));
+    del.type="button";del.className="danger mini";del.textContent="Delete";del.addEventListener("click",()=>deleteStudent(id));
+    actions.append(edit,del);tr.appendChild(actions);body.appendChild(tr);
+  }
+}
+function applySession(){
+  activeSession=$("sessionSelect").value;
+  $("sessionBadge").textContent=sessionLabel(activeSession);$("tableSession").textContent=sessionLabel(activeSession);
+  registrations={};
+  for(const [id,s] of Object.entries(allRegistrations)){
+    if(sessionOf(s)===activeSession) registrations[id]=s;
+  }
+  renderStudents();clearMessage("sessionMessage");resetForm();
+}
+function editStudent(id,s){
+  $("studentId").value=id;$("studentName").value=s.studentName||"";$("fatherName").value=s.fatherName||"";
+  $("className").value=String(s.className||"");$("rollNumber").value=s.rollNumber||"";$("dob").value=s.dob||"";
+  $("gender").value=s.gender||"";$("studentMobile").value=s.studentMobile||"";$("studentEmail").value=s.studentEmail||"";
+  $("medium").value=s.medium||"";document.querySelectorAll("#subjects input").forEach(el=>el.checked=Array.isArray(s.subjects)&&s.subjects.includes(el.value));
+  $("formTitle").textContent="✏️ विद्यार्थी विवरण Edit / Update";submitBtn.textContent="Update Registration";
+  $("formPanel").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function resetForm(){form.reset();$("studentId").value="";$("formTitle").textContent="📝 विद्यार्थी Registration";submitBtn.textContent="Submit Registration";clearMessage("formMessage")}
+$("resetBtn").addEventListener("click",resetForm);
+$("loadSessionBtn").addEventListener("click",()=>{applySession();watchReleaseStatus()});
+$("sessionSelect").addEventListener("change",()=>{applySession();watchReleaseStatus()});
+
+form.addEventListener("submit",async event=>{
+  event.preventDefault();clearMessage("formMessage");
+  if(!currentUser)return message("formMessage","पहले स्कूल अकाउंट से Login करें।");
+  const subjects=selectedSubjects();if(!subjects.length)return message("formMessage","कम से कम एक Battle Subject चुनें।");
+  submitBtn.disabled=true;submitBtn.textContent="Saving...";
+  try{
+    const id=$("studentId").value, now=new Date().toISOString(), existing=id?allRegistrations[id]:null;
+    const record={
+      studentId:id||"",studentName:$("studentName").value.trim(),fatherName:$("fatherName").value.trim(),
+      className:$("className").value,rollNumber:$("rollNumber").value.trim(),dob:$("dob").value,gender:$("gender").value,
+      studentMobile:$("studentMobile").value.trim(),studentEmail:$("studentEmail").value.trim(),medium:$("medium").value,
+      subjects,session:activeSession,academicSession:activeSession,schoolUid:currentUser.uid,
+      schoolName:school.schoolName||school.name||"",schoolCode:school.schoolCode||"",schoolEmail:currentUser.email||"",
+      status:existing?.status||"pending",updatedAt:now,createdAt:existing?.createdAt||now
+    };
+    let studentId=id;if(!studentId)studentId=push(ref(db,"studentRegistrations")).key;
+    record.studentId=studentId;
+    const updates={};
+    updates[`schools/${currentUser.uid}/studentRegistrations/${studentId}`]=record;
+    updates[`studentRegistrations/${studentId}`]=record;
+    await update(ref(db),updates);
+    message("formMessage",id?"विद्यार्थी का विवरण अपडेट हो गया।":"Registration सफल! रिकॉर्ड Admin Dashboard में भेज दिया गया।","success");
+    resetForm();
+  }catch(error){console.error("Student save error:",error);message("formMessage",friendlyError(error))}
+  finally{submitBtn.disabled=false;submitBtn.textContent=$("studentId").value?"Update Registration":"Submit Registration"}
+});
+async function deleteStudent(id){
+  const s=registrations[id];if(!s)return;
+  if(!confirm(`क्या आप ${s.studentName||"इस विद्यार्थी"} का Registration हटाना चाहते हैं?`))return;
+  try{const updates={};updates[`schools/${currentUser.uid}/studentRegistrations/${id}`]=null;updates[`studentRegistrations/${id}`]=null;await update(ref(db),updates);message("listMessage","Registration Delete हो गया।","success")}
+  catch(error){console.error(error);message("listMessage",friendlyError(error))}
+}
+function friendlyError(error){
+  if(error?.code==="PERMISSION_DENIED"||error?.code==="permission_denied")return "Firebase Database permission denied. Firebase Rules में school-owned student records और admitCardSettings के read access की अनुमति जाँचें।";
+  if(error?.code==="NETWORK_ERROR"||error?.code==="auth/network-request-failed")return "Network error: इंटरनेट और Firebase कनेक्शन जाँचें।";
+  return error?.message||"कार्य पूरा नहीं हुआ। Firebase Rules और Console error जाँचें।";
+}
+function watchReleaseStatus(){
+  if(unsubscribeRelease)unsubscribeRelease();
+  admitCardsPublished=false;
+  $("releaseStatus").className="release";
+  $("releaseStatus").textContent="Admin की release setting जाँची जा रही है...";
+  renderStudents();
+  // Each school reads only its own setting: schoolAdmitCardSettings/{schoolUid}/{session}.
+  unsubscribeRelease=onValue(ref(db,`schoolAdmitCardSettings/${currentUser.uid}/${activeSession}`),snap=>{
+    const setting=snap.val()||{};
+    currentReleaseSettings=setting;
+    admitCardsPublished=setting.published===true;
+    if(admitCardsPublished){
+      $("releaseStatus").className="release ready";
+      $("releaseStatus").textContent=`✅ Admin ने Session ${sessionLabel(activeSession)} के Admit Cards जारी कर दिए हैं। अब स्कूल कार्ड प्रिंट कर सकता है।`;
+    }else{
+      $("releaseStatus").className="release";
+      $("releaseStatus").textContent=`⏳ Session ${sessionLabel(activeSession)} के Admit Cards अभी Admin ने जारी नहीं किए हैं। जारी होने के बाद विकल्प उपलब्ध होगा।`;
+    }
+    renderStudents();
+  },error=>{console.error("Admit card release check:",error);admitCardsPublished=false;$("releaseStatus").className="release";$("releaseStatus").textContent="Admit Card release status नहीं पढ़ा जा सका। Firebase Rules में admitCardSettings read access जाँचें।";renderStudents()});
+}
+function showAdmitCard(id,s){
+  if(!admitCardsPublished){message("sessionMessage","Admin ने आपके स्कूल के लिए इस Session के Admit Cards अभी जारी नहीं किए हैं।");return}
+  const subjects=Array.isArray(s.subjects)?s.subjects.join(", "):safeText(s.subjects);
+  const esc=v=>String(v??"—").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  $("admitCardContent").innerHTML=`
+  <div style="max-width:760px;margin:0 auto;border:3px solid #4338ca;border-radius:16px;overflow:hidden;padding:0;font-family:Arial,sans-serif;color:#172033;background:#fff;box-shadow:0 6px 18px #1e1b4b22"><div style="height:12px;background:linear-gradient(90deg,#0f766e,#2563eb,#7c3aed,#db2777,#f59e0b)"></div><div style="padding:22px;background:linear-gradient(120deg,#eff6ff,#fdf2f8)">
+    <div style="text-align:center;border-bottom:2px solid #1e3a8a;padding-bottom:12px">
+      <div style="font-size:25px;font-weight:800;color:#1e3a8a">🎓 BIHAR ACADEMIC BATTLE</div>
+      <div style="font-size:17px;font-weight:700;margin-top:7px">STUDENT ADMIT CARD</div>
+      <div style="margin-top:5px">Academic Session: ${esc(sessionLabel(activeSession))}</div>
+      <div style="margin-top:5px;padding:10px;background:linear-gradient(90deg,#dbeafe,#fce7f3);border-radius:8px"><b>Exam Date:</b> ${esc(currentReleaseSettings.examDate||"—")} &nbsp; | &nbsp; <b>Exam Centre:</b> ${esc(currentReleaseSettings.examCentre||"—")}</div>
+    </div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 22px">
+      <div><b>Student Name:</b> ${esc(s.studentName)}</div><div><b>Admit Card ID:</b> ${esc(id)}</div>
+      <div><b>Father/Guardian:</b> ${esc(s.fatherName)}</div><div><b>Class:</b> ${esc(s.className)}</div>
+      <div><b>Roll Number:</b> ${esc(s.rollNumber)}</div><div><b>Date of Birth:</b> ${esc(s.dob)}</div>
+      <div><b>School:</b> ${esc(school.schoolName||school.name)}</div><div><b>School Code:</b> ${esc(school.schoolCode)}</div>
+      <div style="grid-column:1/-1"><b>Battle(s):</b> ${esc(subjects)}</div>
+    </div>
+    <div style="margin-top:38px;display:flex;justify-content:space-between;gap:24px"><div style="border-top:1px solid #334155;padding-top:7px">School Seal</div><div style="border-top:1px solid #334155;padding-top:7px">Authorized Signature</div></div>
+    <p style="font-size:12px;text-align:center;margin-top:22px">Please bring this admit card to the examination / battle venue.</p>
+  </div>`;
+  $("admitCard").classList.remove("hidden");$("admitCard").scrollIntoView({behavior:"smooth"});
+}
+$("printCardBtn").addEventListener("click",()=>window.print());
+$("closeCardBtn").addEventListener("click",()=>$("admitCard").classList.add("hidden"));
+$("printAllBtn").addEventListener("click",()=>{
+  if(!admitCardsPublished){message("sessionMessage","Admin ने आपके स्कूल के लिए इस Session के Admit Cards अभी जारी नहीं किए हैं।");return}
+  const rows=Object.entries(registrations);
+  if(!rows.length){message("sessionMessage","इस session में कोई विद्यार्थी नहीं है।");return}
+  const esc=v=>String(v??"—").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;", "'":"&#39;"}[c]));
+  const cards=rows.map(([id,s],i)=>{const subjects=Array.isArray(s.subjects)?s.subjects.join(", "):safeText(s.subjects||s.selectedSubjects||s.subject);return `<article class="admit-card"><div class="stripe"></div><header class="card-head"><div class="logo">🎓</div><div><div class="org">BIHAR ACADEMIC BATTLE</div><div class="tag">BIHAR'S ACADEMIC BATTLE PLATFORM</div><div class="card-title">STUDENT ADMIT CARD</div></div><div class="serial">CARD ${String(i+1).padStart(3,"0")}</div></header><div class="session">ACADEMIC SESSION ${esc(sessionLabel(activeSession))}</div><div class="exam"><div><small>EXAM DATE</small><strong>${esc(currentReleaseSettings.examDate||"—")}</strong></div><div><small>EXAM CENTRE</small><strong>${esc(currentReleaseSettings.examCentre||"—")}</strong></div></div><div class="school"><strong>${esc(school.schoolName||school.name||"School")}</strong><span>School Code: ${esc(school.schoolCode||"—")}</span></div><div class="details"><div><small>STUDENT NAME</small><strong>${esc(s.studentName||s.name||s.fullName)}</strong></div><div><small>ADMIT CARD ID</small><strong>${esc(id)}</strong></div><div><small>FATHER / GUARDIAN</small><strong>${esc(s.fatherName||s.guardianName||s.parentName)}</strong></div><div><small>CLASS</small><strong>${esc(s.className||s.class||s.grade)}</strong></div><div><small>ROLL NUMBER</small><strong>${esc(s.rollNumber||"—")}</strong></div><div><small>DATE OF BIRTH</small><strong>${esc(s.dob||s.dateOfBirth||"—")}</strong></div><div class="wide"><small>BATTLE SUBJECT(S)</small><strong>${esc(subjects)}</strong></div></div><div class="instructions"><strong>Instructions:</strong> Bring this admit card to the examination centre. Follow the instructions given by the invigilator.</div><footer><span>School Seal</span><span>Authorized Signature</span></footer></article>`}).join("");
+  const win=window.open("","_blank");if(!win){message("sessionMessage","Popup blocked है। Browser में इस site के लिए popups allow करें।");return}
+  win.document.open();win.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>All Admit Cards</title><style>*{box-sizing:border-box}body{margin:0;padding:18px;background:#eef2ff;font:14px Arial,sans-serif;color:#172033}.toolbar{max-width:850px;margin:0 auto 18px;text-align:center}.toolbar button{background:#1d4ed8;color:#fff;border:0;border-radius:8px;padding:10px 16px;font-weight:bold;cursor:pointer}.admit-card{position:relative;overflow:hidden;max-width:850px;margin:0 auto 18px;background:#fff;border:2px solid #4338ca;border-radius:16px;box-shadow:0 6px 18px #1e1b4b22;page-break-after:always;break-after:page}.stripe{height:12px;background:linear-gradient(90deg,#0f766e,#2563eb,#7c3aed,#db2777,#f59e0b)}.card-head{display:flex;align-items:center;gap:14px;padding:18px 22px 12px;background:linear-gradient(120deg,#eff6ff,#fdf2f8)}.logo{display:grid;place-items:center;flex:0 0 54px;height:54px;border-radius:14px;background:linear-gradient(135deg,#1d4ed8,#7c3aed);font-size:30px}.org{font-size:25px;font-weight:900;color:#1e3a8a;letter-spacing:.3px}.tag{font-size:10px;color:#64748b;letter-spacing:1.5px;margin-top:3px}.card-title{display:inline-block;margin-top:9px;padding:6px 12px;background:linear-gradient(90deg,#0f766e,#2563eb);color:white;border-radius:6px;font-weight:900;letter-spacing:1.2px}.serial{margin-left:auto;align-self:flex-start;background:#fef3c7;color:#92400e;padding:7px 9px;border-radius:7px;font-weight:800;font-size:11px}.session{text-align:center;background:#ede9fe;color:#5b21b6;font-weight:800;letter-spacing:1px;padding:9px}.exam{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin:16px 22px 10px}.exam>div{padding:12px;border-radius:10px;background:linear-gradient(135deg,#dbeafe,#e0f2fe);border-left:4px solid #2563eb}.exam>div+div{background:linear-gradient(135deg,#fce7f3,#fae8ff);border-left-color:#c026d3}small{display:block;color:#64748b;font-size:10px;font-weight:800;letter-spacing:.8px;margin-bottom:5px}.exam strong{font-size:15px;color:#172554}.school{margin:0 22px 12px;padding:10px 12px;border-radius:8px;background:#f0fdf4;border:1px solid #bbf7d0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#166534}.details{margin:0 22px;display:grid;grid-template-columns:1fr 1fr;gap:9px}.details>div{padding:10px 11px;border:1px solid #e2e8f0;border-radius:8px;background:#f8fafc;min-height:51px}.details .wide{grid-column:1/-1;background:#fff7ed;border-color:#fed7aa}.details strong{display:block;font-size:13px;overflow-wrap:anywhere}.instructions{margin:14px 22px 0;padding:10px;background:#fffbeb;border-left:4px solid #f59e0b;color:#92400e;font-size:11px}.admit-card footer{display:flex;justify-content:space-between;margin:30px 22px 18px;gap:40px}footer span{width:180px;text-align:center;border-top:1px solid #334155;padding-top:7px;font-size:11px;font-weight:bold}@page{size:A4;margin:10mm}@media print{body{padding:0;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.toolbar{display:none}.admit-card{max-width:none;margin:0;border-radius:0;box-shadow:none;min-height:255mm;page-break-after:always;break-after:page}.admit-card:last-child{page-break-after:auto;break-after:auto}}</style></head><body><div class="toolbar"><button onclick="window.print()">Print / Save all as PDF</button><p>${rows.length} admit card(s) — ${esc(school.schoolName||school.name||"School")}</p></div>${cards}</body></html>`);win.document.close();
+  message("sessionMessage",`${rows.length} रंगीन Admit Cards तैयार हैं। नई विंडो में Print / Save all as PDF दबाएँ।`,"success");
+});
+$("logoutBtn").addEventListener("click",async()=>{try{if(unsubscribeStudents)unsubscribeStudents();if(unsubscribeRelease)unsubscribeRelease();await signOut(auth);location.href="./login.html"}catch(e){alert("Logout failed: "+e.message)}});
+
+onAuthStateChanged(auth,async user=>{
+  if(!user){location.replace("./login.html");return}currentUser=user;
+  try{
+    const snap=await get(ref(db,`schools/${user.uid}`));
+    if(!snap.exists())throw new Error("इस Login UID से schools/{uid} पर स्कूल प्रोफाइल नहीं मिला।");
+    school=snap.val();if(school.status&&school.status!=="active")throw new Error("स्कूल अकाउंट सक्रिय नहीं है। Administrator से संपर्क करें।");
+    setText("welcomeName",school.schoolName||school.name||user.email);setText("schoolName",school.schoolName||school.name);
+    setText("schoolCode",school.schoolCode);setText("schoolStatus",school.status||"active");setText("schoolEmail",school.loginEmail||school.schoolEmail||user.email);
+    $("loading").classList.add("hidden");$("page").classList.remove("hidden");
+    unsubscribeStudents=onValue(ref(db,`schools/${user.uid}/studentRegistrations`),snapshot=>{
+      allRegistrations=snapshot.val()||{};applySession();
+    },error=>{console.error(error);message("listMessage",friendlyError(error))});
+    watchReleaseStatus();
+  }catch(error){console.error("Dashboard load error:",error);$("loading").classList.add("hidden");message("pageError",friendlyError(error))}
+});
+</script>
 </body>
 </html>
