@@ -1,93 +1,184 @@
 <!DOCTYPE html>
+
 <html lang="hi">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <meta name="theme-color" content="#1e3a8a">
+
 <title>School Dashboard | Bihar Academic Battle</title>
+
 <style>:root{--blue:#1e3a8a;--blue2:#2563eb;--bg:#f1f5f9;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--green:#166534;--red:#991b1b}*{box-sizing:border-box}body{background:var(--bg);color:var(--ink);margin:0;font:15px Arial,sans-serif}header{background:var(--blue);color:#fff;padding:14px 18px}.head{justify-content:space-between;align-items:center;gap:12px;max-width:1150px;margin:auto;display:flex}.brand{font-size:18px;font-weight:800}button{cursor:pointer;border:0;border-radius:8px;padding:10px 13px;font-weight:700}.logout{color:var(--blue);background:#fff}button:disabled{opacity:.55;cursor:not-allowed}main{max-width:1150px;margin:22px auto;padding:0 14px}.panel{background:#fff;border-radius:13px;margin-bottom:17px;padding:20px;box-shadow:0 4px 18px #0f172a0b}h1{color:var(--blue);margin:0 0 7px;font-size:24px}h2{color:var(--blue);border-bottom:1px solid var(--line);margin:0 0 15px;padding-bottom:10px;font-size:19px}.sub,.hint{color:var(--muted);line-height:1.5}.school-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;display:grid}.info{background:#f8fafc;border:1px solid #edf2f7;border-radius:8px;min-width:0;padding:11px}.info small{color:var(--muted);margin-bottom:5px;display:block}.info strong{overflow-wrap:anywhere}.stats{flex-wrap:wrap;gap:8px;margin-top:13px;display:flex}.pill{color:#1e3a8a;background:#e0e7ff;border-radius:20px;padding:7px 11px;font-size:13px;font-weight:700}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;display:grid}.field label{margin-bottom:6px;font-size:13px;font-weight:700;display:block}.field input,.field select{width:100%;font:inherit;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:11px}.subjects{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:8px;display:grid}.subject{border:1px solid var(--line);background:#fafcff;border-radius:8px;align-items:center;gap:7px;padding:10px;display:flex}.actions{flex-wrap:wrap;gap:8px;margin-top:16px;display:flex}.primary{background:var(--blue);color:#fff}.secondary{color:#172033;background:#e2e8f0}.danger{color:var(--red);background:#fee2e2}.message{overflow-wrap:anywhere;border-radius:8px;margin:12px 0 0;padding:11px 12px;line-height:1.5;display:none}.error{color:var(--red);background:#fee2e2;display:block}.success{color:var(--green);background:#dcfce7;display:block}.hint{font-size:13px}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:760px}th,td{text-align:left;border-bottom:1px solid var(--line);vertical-align:top;padding:11px 10px}th{text-transform:uppercase;color:#475569;background:#f8fafc;font-size:12px}td{font-size:14px}.mini{margin:2px;padding:7px 9px;font-size:12px}.status{color:#92400e;background:#fef3c7;border-radius:20px;padding:5px 8px;font-size:12px;font-weight:700;display:inline-block}.empty{text-align:center;color:var(--muted);padding:25px}.hidden{display:none!important}.session-row{flex-wrap:wrap;align-items:end;gap:12px;display:flex}.session-row .field{flex:1;min-width:210px}.release{color:#9a3412;background:#fff7ed;border:1px solid #fed7aa;border-radius:9px;margin-top:12px;padding:12px}.release.ready{color:#166534;background:#dcfce7;border-color:#bbf7d0}@media (width<=800px){.school-grid,.subjects,.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (width<=520px){.head{align-items:flex-start}.brand{font-size:15px}.school-grid,.grid{grid-template-columns:1fr}.panel{padding:15px}main{margin-top:14px}.subjects{grid-template-columns:1fr 1fr}}@media print{header,.no-print,#formPanel,#sessionPanel,#studentListPanel{display:none!important}body{background:#fff}.panel{box-shadow:none;border:0;margin:0;padding:0}#admitCard{display:block!important}}</style>
-  <script type="module" crossorigin src="/assets/dashboard-Bh1GNQmp.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/firebase-DHTEOGjq.js">
+
+  <script type="module" crossorigin src="/assets/dashboard-CqJRY4br.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/firebase-BUSfOZUq.js">
 </head>
+
 <body>
+
 <header><div class="head"><div class="brand">🎓 BIHAR ACADEMIC BATTLE</div><button id="logoutBtn" class="logout" type="button">Logout ↗</button></div></header>
+
 <main>
-  <div id="loading" class="panel">⏳ स्कूल की जानकारी लोड हो रही है...</div>
-  <div id="page" class="hidden">
-    <section class="panel">
-      <h1>School Dashboard</h1>
-      <p class="sub">स्वागत है, <strong id="welcomeName">School</strong> — विद्यार्थी Registration, Session और Admit Card यहाँ मैनेज करें।</p>
-      <div class="school-grid">
-        <div class="info"><small>School Name</small><strong id="schoolName">—</strong></div>
-        <div class="info"><small>School Code</small><strong id="schoolCode">—</strong></div>
-        <div class="info"><small>School Status</small><strong id="schoolStatus">—</strong></div>
-        <div class="info"><small>Login Email</small><strong id="schoolEmail">—</strong></div>
-      </div>
-      <div class="stats"><span class="pill">Selected Session Students: <span id="studentCount">0</span></span><span class="pill">Academic Session: <span id="sessionBadge">2026-2027</span></span></div>
-    </section>
 
-    <section class="panel" id="sessionPanel">
-      <h2>📅 Academic Session और Admit Card</h2>
-      <div class="session-row">
-        <div class="field"><label for="sessionSelect">Academic Session चुनें</label>
-          <select id="sessionSelect">
-            <option value="2026-2027">2026–2027</option><option value="2027-2028">2027–2028</option><option value="2028-2029">2028–2029</option><option value="2029-2030">2029–2030</option>
-          </select>
-        </div>
-        <button class="primary" id="loadSessionBtn" type="button">Load Session Data</button>
-        <button class="secondary" id="printAllBtn" type="button">Print Available Admit Cards</button>
-      </div>
-      <div id="releaseStatus" class="release">Admit Card status जाँचा जा रहा है...</div>
-      <p class="hint">Admit Card केवल तभी उपलब्ध होगा जब Admin चुने गए Session के लिए उसे Publish/Release करेगा। पुराने रिकॉर्ड जिनमें session नहीं है, उन्हें 2026–2027 में दिखाया जाएगा।</p>
-      <div id="sessionMessage" class="message" role="status"></div>
-    </section>
+  <div id="loading" class="panel">⏳ स्कूल की जानकारी लोड हो रही है...</div>
 
-    <section class="panel" id="formPanel">
-      <h2 id="formTitle">📝 विद्यार्थी Registration</h2>
-      <p class="hint">विद्यार्थी का डेटा चुने गए Academic Session के साथ सेव होगा। एक विद्यार्थी एक या कई Battles चुन सकता है।</p>
-      <form id="studentForm">
-        <input type="hidden" id="studentId">
-        <div class="grid">
-          <div class="field"><label for="studentName">विद्यार्थी का पूरा नाम *</label><input id="studentName" required maxlength="100"></div>
-          <div class="field"><label for="fatherName">पिता/अभिभावक का नाम *</label><input id="fatherName" required maxlength="100"></div>
-          <div class="field"><label for="className">कक्षा *</label><select id="className" required><option value="">कक्षा चुनें</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></div>
-          <div class="field"><label for="rollNumber">रोल नंबर</label><input id="rollNumber" maxlength="30"></div>
-          <div class="field"><label for="dob">जन्मतिथि</label><input id="dob" type="date"></div>
-          <div class="field"><label for="gender">लिंग</label><select id="gender"><option value="">चुनें</option><option>Male</option><option>Female</option><option>Other</option></select></div>
-          <div class="field"><label for="studentMobile">विद्यार्थी/अभिभावक मोबाइल</label><input id="studentMobile" type="tel" inputmode="tel" maxlength="15"></div>
-          <div class="field"><label for="studentEmail">ईमेल (यदि हो)</label><input id="studentEmail" type="email" maxlength="150"></div>
-          <div class="field"><label for="medium">पढ़ाई का माध्यम</label><select id="medium"><option value="">चुनें</option><option>Hindi</option><option>English</option><option>Urdu</option><option>Other</option></select></div>
-        </div>
-        <div style="margin-top:18px"><strong>Choose Battle Subject(s) *</strong>
-          <div class="subjects" id="subjects">
-            <label class="subject"><input type="checkbox" value="Bihar GK">📖 Bihar GK</label>
-            <label class="subject"><input type="checkbox" value="Mathematics">➗ Mathematics</label>
-            <label class="subject"><input type="checkbox" value="Science">⚗️ Science</label>
-            <label class="subject"><input type="checkbox" value="Computer">💻 Computer</label>
-            <label class="subject"><input type="checkbox" value="English">📚 English</label>
-            <label class="subject"><input type="checkbox" value="Hindi">✍️ Hindi</label>
-            <label class="subject"><input type="checkbox" value="SST">🌍 SST</label>
-            <label class="subject"><input type="checkbox" value="Drawing">🎨 Drawing</label>
-          </div>
-        </div>
-        <div class="actions"><button id="submitBtn" class="primary" type="submit">Submit Registration</button><button id="resetBtn" class="secondary" type="button">Clear Form</button></div>
-        <div id="formMessage" class="message" role="status" aria-live="polite"></div>
-      </form>
-    </section>
+  <div id="page" class="hidden">
 
-    <section class="panel" id="studentListPanel">
-      <h2>👨‍🎓 Registered Students — <span id="tableSession">2026–2027</span></h2>
-      <div class="table-wrap"><table><thead><tr><th>विद्यार्थी</th><th>कक्षा / रोल</th><th>Battle Subjects</th><th>स्थिति</th><th>Admit Card</th><th>Actions</th></tr></thead>
-      <tbody id="studentsBody"><tr><td colspan="6" class="empty">डेटा लोड हो रहा है...</td></tr></tbody></table></div>
-      <div id="listMessage" class="message" role="status"></div>
-    </section>
+    <section class="panel">
 
-    <section class="panel hidden" id="admitCard">
-      <div id="admitCardContent"></div>
-      <div class="actions no-print"><button class="primary" id="printCardBtn" type="button">Print / Save PDF</button><button class="secondary" id="closeCardBtn" type="button">Close Admit Card</button></div>
-    </section>
-  </div>
-  <div id="pageError" class="message" role="alert"></div>
-</main>
+      <h1>School Dashboard</h1>
+
+      <p class="sub">स्वागत है, <strong id="welcomeName">School</strong> — विद्यार्थी Registration, Session और Admit Card यहाँ मैनेज करें।</p>
+
+      <div class="school-grid">
+
+        <div class="info"><small>School Name</small><strong id="schoolName">—</strong></div>
+
+        <div class="info"><small>School Code</small><strong id="schoolCode">—</strong></div>
+
+        <div class="info"><small>School Status</small><strong id="schoolStatus">—</strong></div>
+
+        <div class="info"><small>Login Email</small><strong id="schoolEmail">—</strong></div>
+
+      </div>
+
+      <div class="stats"><span class="pill">Selected Session Students: <span id="studentCount">0</span></span><span class="pill">Academic Session: <span id="sessionBadge">2026-2027</span></span></div>
+
+    </section>
+
+
+
+    <section class="panel" id="sessionPanel">
+
+      <h2>📅 Academic Session और Admit Card</h2>
+
+      <div class="session-row">
+
+        <div class="field"><label for="sessionSelect">Academic Session चुनें</label>
+
+          <select id="sessionSelect">
+
+            <option value="2026-2027">2026–2027</option><option value="2027-2028">2027–2028</option><option value="2028-2029">2028–2029</option><option value="2029-2030">2029–2030</option>
+
+          </select>
+
+        </div>
+
+        <button class="primary" id="loadSessionBtn" type="button">Load Session Data</button>
+
+        <button class="secondary" id="printAllBtn" type="button">Print Available Admit Cards</button>
+
+      </div>
+
+      <div id="releaseStatus" class="release">Admit Card status जाँचा जा रहा है...</div>
+
+      <p class="hint">Admit Card केवल तभी उपलब्ध होगा जब Admin चुने गए Session के लिए उसे Publish/Release करेगा। पुराने रिकॉर्ड जिनमें session नहीं है, उन्हें 2026–2027 में दिखाया जाएगा।</p>
+
+      <div id="sessionMessage" class="message" role="status"></div>
+
+    </section>
+
+
+
+    <section class="panel" id="formPanel">
+
+      <h2 id="formTitle">📝 विद्यार्थी Registration</h2>
+
+      <p class="hint">विद्यार्थी का डेटा चुने गए Academic Session के साथ सेव होगा। एक विद्यार्थी एक या कई Battles चुन सकता है।</p>
+
+      <form id="studentForm">
+
+        <input type="hidden" id="studentId">
+
+        <div class="grid">
+
+          <div class="field"><label for="studentName">विद्यार्थी का पूरा नाम *</label><input id="studentName" required maxlength="100"></div>
+
+          <div class="field"><label for="fatherName">पिता/अभिभावक का नाम *</label><input id="fatherName" required maxlength="100"></div>
+
+          <div class="field"><label for="className">कक्षा *</label><select id="className" required><option value="">कक्षा चुनें</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></div>
+
+          <div class="field"><label for="rollNumber">रोल नंबर</label><input id="rollNumber" maxlength="30"></div>
+
+          <div class="field"><label for="dob">जन्मतिथि</label><input id="dob" type="date"></div>
+
+          <div class="field"><label for="gender">लिंग</label><select id="gender"><option value="">चुनें</option><option>Male</option><option>Female</option><option>Other</option></select></div>
+
+          <div class="field"><label for="studentMobile">विद्यार्थी/अभिभावक मोबाइल</label><input id="studentMobile" type="tel" inputmode="tel" maxlength="15"></div>
+
+          <div class="field"><label for="studentEmail">ईमेल (यदि हो)</label><input id="studentEmail" type="email" maxlength="150"></div>
+
+          <div class="field"><label for="medium">पढ़ाई का माध्यम</label><select id="medium"><option value="">चुनें</option><option>Hindi</option><option>English</option><option>Urdu</option><option>Other</option></select></div>
+
+        </div>
+
+        <div style="margin-top:18px"><strong>Choose Battle Subject(s) *</strong>
+
+          <div class="subjects" id="subjects">
+
+            <label class="subject"><input type="checkbox" value="Bihar GK">📖 Bihar GK</label>
+
+            <label class="subject"><input type="checkbox" value="Mathematics">➗ Mathematics</label>
+
+            <label class="subject"><input type="checkbox" value="Science">⚗️ Science</label>
+
+            <label class="subject"><input type="checkbox" value="Computer">💻 Computer</label>
+
+            <label class="subject"><input type="checkbox" value="English">📚 English</label>
+
+            <label class="subject"><input type="checkbox" value="Hindi">✍️ Hindi</label>
+
+            <label class="subject"><input type="checkbox" value="SST">🌍 SST</label>
+
+            <label class="subject"><input type="checkbox" value="Drawing">🎨 Drawing</label>
+
+          </div>
+
+        </div>
+
+        <div class="actions"><button id="submitBtn" class="primary" type="submit">Submit Registration</button><button id="resetBtn" class="secondary" type="button">Clear Form</button></div>
+
+        <div id="formMessage" class="message" role="status" aria-live="polite"></div>
+
+      </form>
+
+    </section>
+
+
+
+    <section class="panel" id="studentListPanel">
+
+      <h2>👨‍🎓 Registered Students — <span id="tableSession">2026–2027</span></h2>
+
+      <div class="table-wrap"><table><thead><tr><th>विद्यार्थी</th><th>कक्षा / रोल</th><th>Battle Subjects</th><th>स्थिति</th><th>Admit Card</th><th>Actions</th></tr></thead>
+
+      <tbody id="studentsBody"><tr><td colspan="6" class="empty">डेटा लोड हो रहा है...</td></tr></tbody></table></div>
+
+      <div id="listMessage" class="message" role="status"></div>
+
+    </section>
+
+
+
+    <section class="panel hidden" id="admitCard">
+
+      <div id="admitCardContent"></div>
+
+      <div class="actions no-print"><button class="primary" id="printCardBtn" type="button">Print / Save PDF</button><button class="secondary" id="closeCardBtn" type="button">Close Admit Card</button></div>
+
+    </section>
+
+  </div>
+
+  <div id="pageError" class="message" role="alert"></div>
+
+</main>
+
+
 </body>
+
 </html>
