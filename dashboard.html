@@ -105,9 +105,25 @@ h1{font-size:24px;color:var(--blue);margin:0 0 7px}h2{font-size:19px;color:var(-
   <div id="pageError" class="message" role="alert"></div>
 </main>
 <script type="module">
-import { auth, db } from "./firebase.js";
-import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
-import { ref, get, push, update, remove, onValue } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+
+
+  import { auth, db } from "./firebase.js";
+
+  import {
+    onAuthStateChanged,
+    signOut
+  } from "firebase/auth";
+
+  import {
+    ref,
+    get,
+    set,
+    update,
+    push
+  } from "firebase/database";
+
+  
+
 
 const $ = id => document.getElementById(id);
 const form = $("studentForm"), submitBtn = $("submitBtn");
